@@ -1,6 +1,6 @@
 #BBPOS - F&B Web POS
 
-------
+======
 
 ##[version:v2.2.0](http://59.152.251.6:3060/login.html)
 > First release to QA after database structure
@@ -60,7 +60,7 @@ bbpos_fb_web
 
    "serverIP" : "服务器地址",
    "bucketName" : "CouchBase -> bucket",
-   "gatewayPort" : 网关端口,
+   "gatewayPort" : "网关端口",
    "gatewayAuth" : "网关认证名称",
    "operationTimeout" : "CouchBase操作时间",
 
