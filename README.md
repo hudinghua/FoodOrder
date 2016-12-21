@@ -1,7 +1,5 @@
 #BBPOS - F&B Web POS
 
-======
-
 ##[version:v2.2.0](http://59.152.251.6:3060/login.html)
 > First release to QA after database structure
 
