@@ -1,0 +1,22 @@
+.order {
+    border-width: 115px;
+    z-index: 10;
+    &.arrow-primary{
+        &:after{
+	        border-bottom-color: yellow;
+	    }
+	}
+    &.top {
+	    left: 50%;
+	    margin-left: 2px;
+	    border-top-width: 0;
+	    border-bottom-color: green;
+	    top: 8pxh;
+	    &:after {
+	        top: 1px;
+	        margin-left: 5px;
+	        border-top-width: 0;
+	        border-bottom-color: red;
+	    }
+	}
+}

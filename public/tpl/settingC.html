@@ -1,0 +1,95 @@
+<div class="settingwrap">
+	<div class="module-title">
+		Settings
+	</div>
+	<div  fb-Scroll class="setting-scroll">
+		<div class="settingwell">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<h4 style="color: #212121;">Line item display</h4>
+				</div>
+			</div>
+			<div class="row padder-v">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<label ng-click="rowSave()" class="i-checks text-dark">
+			            <input ng-checked="setParam.isAddItem" ng-model="setParam.isAddItem" type="checkbox" name="addItems">
+			            <i></i>Display line items while ordering
+			        </label>
+				</div>
+			</div>
+			<div class="row padder">
+				<strong style="color:#b3b5b4;">Device IP</strong>
+				<div class="ip-bbpos font-bold text-md">{{setParam.currentIp}}</div>
+			</div>
+			<div class="row padder">
+				<hr style="background-color:#DDD;height:1px;border:none;" />
+			</div>
+			<div class="panel panel-default">
+			    <div class="row wrapper">
+				    <div class="col-sm-5 m-t-xs m-b-md">
+				    	<strong class="title-bbpos">Checkout device(s)</strong>
+				    </div> 
+				    <div class="col-sm-4"></div>
+				    <div class="col-sm-3 text-right">
+				    	<a ng-click="rowAdd()" class="btn btn-success" href="javascript:;" role="button">ADD DEVICE</a>
+				    </div>
+			    </div>
+			    <div class="table-responsive">
+			      	<table class="table table-striped b-light">
+				        <thead>
+				          <tr>
+				            <th style="color:#b3b5b4;width:20px;">Default</th>
+				            <th style="color:#b3b5b4;">Name</th>
+				            <th style="color:#b3b5b4;">Device IP</th>
+				            <th style="width:100px;"></th>
+				          </tr>
+				        </thead>
+				        <tbody>
+				            <tr ng-repeat="ip in ipData">
+				             	<td>
+				             		<div class="ip-cell">
+				             			<label ng-click="rowSelected(ip)" class="i-checks m-b-none"><input ng-model="setParam.currentIp" value="{{ip.deviceip}}" type="radio" name="selectip"><i></i></label>
+				             		</div>
+				             	</td>
+				            	<td>
+				            		<div class="ip-cell" style="min-width:260px;">
+				            			<span class="text-ellipsis" editable-text="ip.name" e-name="name" e-form="rowform" onbeforesave="checkName($data)">{{ip.name || ""}}</span>
+				            		</div>
+				            	</td>
+				            	<td>
+				            		<div class="ip-cell" style="min-width:260px;">
+				            			<span class="text-ellipsis" editable-text="ip.deviceip" e-name="deviceip" e-form="rowform" onbeforesave="checkIp($data)">{{ip.deviceip || ""}}</span>
+				            		</div>
+				            	</td>
+					            <td>
+						            <div class="ip-cell">
+						              	<form editable-form name="rowform" onaftersave="rowSave($data)" oncancel="rowCancel(ip)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == ip">
+						              		<button type="submit" class="glyphicon glyphicon-ok ip-icon-font ip-icon-rowsave" ng-disabled="rowform.$waiting"></button>
+						              		<i class="glyphicon glyphicon-remove ip-icon-font" style="color:red;opacity:.5" ng-click="rowform.$cancel()"  ></i>
+								        </form>
+								        <div class="buttons" ng-show="!rowform.$visible">
+								            <i class="glyphicon glyphicon-edit ip-icon-font" style="color:#23b7e5" ng-click="rowform.$show()"></i>
+								            <i class="glyphicon glyphicon-minus ip-icon-font" style="color:red;opacity:.8" ng-click="rowDelete(ip)" role="delete"></i>
+								            <!-- <i ng-click="rowDelete(ip)" class="icon-ic-content-remove-black ip-delete" role="delete"></i> -->
+								        </div>
+								     </div>
+					            </td>
+				            </tr>
+				            <tr ng-if="ipData.length == 0">
+				            	<td colspan="4">
+				            		<div class="norow">No device ip record...</div>
+				            	</td>
+				            </tr>
+				        </tbody>
+			      	</table>
+			    </div>
+		    </div>
+		    <!-- <div class="row padder text-right">
+		    	<a ng-click="saveSetting()" class="btn btn-success text-md btn-bbpos" href="javascript:;" role="button">Save</a>
+		    </div> -->
+		</div>
+	</div>
+	<div ng-if="isLoading" class="bbpos-loading">
+		<div class="loader">Loading...</div>
+	</div>
+</div>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>BBPOS - F&B Web POS</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./libs/jquery/bootstrap/dist/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <style type="text/css">
+    	html {
+    		height: 100%;
+    	}
+    	body {
+		    background-color: #eee;
+		    height: 100%;
+		}
+
+		.signin-bg {
+			background-image: url('./img/login_bg.png');
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+		    height: 90%;
+		    position: relative;
+		}
+
+		.form-signin {
+		    padding: 15px;
+		    width: 65%;
+				max-width: 460px;
+				min-width: 280px;
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    -webkit-transform: translate(-50%,-50%);
+		       -moz-transform: translate(-50%,-50%);
+		            transform: translate(-50%,-50%);
+		}
+		.form-signin .form-signin-heading {
+			margin-bottom: 10px;
+		    background-image: url('./img/logo.png');
+		    background-size: contain;
+			background-repeat: no-repeat;
+		    width: 200px;
+		    margin: 0 auto;
+		    height: 100px;
+		}
+
+		.form-group {
+		  	position: relative;
+		  	margin-top: 32px;
+		  	margin-bottom: 40px;
+		}
+		.form-control {
+		  	display: block;
+		  	height: 36px;
+		  	width: 100%;
+		  	border: none;
+		  	border-radius: 0 !important;
+		  	font-size: 15px;
+		  	font-family: inherit;
+		  	font-weight: 300;
+		  	padding: 0;
+		  	background-color: transparent;
+		  	box-shadow: none;
+		  	border-bottom: 1px solid rgba(117, 117, 117, 0.15);
+		}
+		.form-control:focus {
+		  	border-bottom: 2px solid #4CAF50;
+		  	outline: none;
+		  	box-shadow: none;
+		}
+
+		.float-label {
+		 	position: absolute;
+		  	left: 0;
+		  	top: 10px;
+		  	font-size: 16px;
+		  	color: #999;
+		  	font-weight: 300;
+		  	transition: 0.2s ease all;
+		  	-moz-transition: 0.2s ease all;
+		  	-webkit-transition: 0.2s ease all;
+		}
+
+		.form-control:focus ~ .float-label, .form-control:valid ~ .float-label {
+		  	top: -15px;
+		  	font-size: 12px;
+		}
+
+		.form-group error {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: 38px;
+			font-size: 11px;
+			color: #d34336;
+			font-weight: 300;
+			transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) all;
+			-moz-transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) all;
+			-webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) all;
+			opacity: 0;
+		}
+
+		.form-group error i {
+			position: absolute;
+			right: 0;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			float: right;
+		}
+
+		.form-group error i svg {
+			fill:#d34336;
+		}
+
+		.form-group[errr] .float-label {
+			color: #d34336 !important;
+		}
+
+		.form-group[errr] .form-control {
+			border-bottom: 1px solid #d34336 !important;
+		}
+
+		.form-group[errr] .form-control:focus {
+			border-bottom: 2px solid #d34336 !important;
+		}
+
+
+		.form-group[errr] error {
+			opacity: 1;
+		}
+
+		.form-signin .btn-bg {
+	    position: relative;
+	    min-height: 36px;
+	    min-width: 88px;
+			width: 240px;
+	    vertical-align: middle;
+	    align-items: center;
+	    text-align: center;
+
+	    padding: 0 8px;
+	    margin: 16px auto;
+	    border-radius: 3px;
+	    border: 0;
+
+	    color: white;
+	    background: transparent;
+	    background-color: #4CAF50;
+
+	    font-family: 'Roboto', 'Helvetica', sans-serif;
+	    font-size: 14px;
+	    font-weight: 500;
+	    text-transform: uppercase;
+	    text-decoration: none;
+	    line-height: 36px;
+	    letter-spacing: .1em;
+	    white-space: nowrap;
+	    overflow: hidden;
+
+	    cursor: pointer;
+	    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+	    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+		}
+		.form-signin .btn-bg:active {
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,.4);
+		}
+		.form-signin .btn-bg:hover {
+			background-color: #43A047;
+		}
+		.footer {
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 45px;
+			text-align: center;
+		}
+		.footer span {
+			color: #b3b5b4;
+			font-family: 'Roboto', 'Helvetica', sans-serif;
+			font-weight: 400;
+			letter-spacing:1px;
+		}
+    </style>
+
+</head>
+<body>
+	<div class="container signin-bg">
+		<form class="form-signin">
+	        <div class="form-signin-heading"></div>
+
+	        <div id="u" class="form-group">
+			    <input id="merchant" spellcheck="false" class="form-control" name="merchant" type="text" size="18" alt="login" required="" maxlength="128">
+
+			  	<span class="form-bar"></span>
+			  	<label for="merchant" class="float-label">Merchant ID</label>
+			  	<error><span>Merchant ID cannot be empty.</span><!-- incorrect -->
+					<i>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M0 0h24v24h-24z" fill="none"></path>
+							<path d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path>
+						</svg>
+					</i>
+			  	</error>
+			</div>
+			<div id="s" class="form-group">
+			  	<input id="staff" class="form-control" spellcheck="false" name="staff" type="text" size="18" alt="login" required="" maxlength="128">
+
+			  	<span class="form-bar"></span>
+			  	<label for="staff" class="float-label">Staff ID</label>
+			  	<error><span>Staff ID cannot be empty.</span>
+					<i>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M0 0h24v24h-24z" fill="none"></path>
+							<path d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path>
+						</svg>
+					</i>
+				</error>
+			</div>
+			<div id="p" class="form-group">
+			  	<input id="password" class="form-control" spellcheck="false" name="password" type="password" size="18" alt="login" required="" maxlength="128">
+
+			  	<span class="form-bar"></span>
+			  	<label for="password" class="float-label">Passcode</label>
+			  	<error><span>Passcode cannot be empty.</span>
+					<i>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M0 0h24v24h-24z" fill="none"></path>
+							<path d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path>
+						</svg>
+					</i>
+				</error>
+			</div>
+	        <a style="margin-top: 30px;" id="submit" href="javascript:;" class="btn btn-lg btn-primary btn-block btn-bg">Login</a>
+
+      	</form>
+	</div>
+	<div class="footer">
+  		<span>© 2016 BBPOS All rights reserved</span>
+  	</div>
+	<script type="text/javascript" src = "./libs/jquery/jquery/dist/jquery.js"></script>
+	<!-- <script type="text/javascript" src = "./libs/jquery/bootstrap/dist/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			var merchant = $('#merchant'),
+				staff = $('#staff'),
+				password = $('#password'),
+				submit = $('#submit'),
+				mdiv = $('#u'),
+				sdiv = $('#s'),
+				pdiv = $('#p');
+			/*merchant.blur(function () {
+				if (merchant.val() == '') {
+					mdiv.attr('errr', '');
+				} else {
+					mdiv.removeAttr('errr');
+				}
+			});
+			staff.blur(function () {
+				if (staff.val() == '') {
+					sdiv.attr('errr', '');
+				} else {
+					sdiv.removeAttr('errr');
+				}
+			});
+			password.blur(function () {
+				if (password.val() == '') {
+					pdiv.attr('errr', '');
+				} else {
+					pdiv.removeAttr('errr');
+				}
+			});*/
+
+			if (localStorage.getItem("merchant")) {
+				merchant.val(localStorage.getItem("merchant"));
+			}
+			if (localStorage.getItem("staff")) {
+				staff.val(localStorage.getItem("staff"));
+			}
+			if (localStorage.getItem("password")) {
+				password.val(localStorage.getItem("password"));
+			}
+
+			$("body").keydown(function() {
+			    if (event.keyCode === 13) {
+			        submit.click();
+			    }
+			});
+
+			submit.on('click', function (event) {
+				event.preventDefault();
+				var isValid = true;
+				if (submit.text().toLocaleUpperCase() !== 'LOGIN') {
+					return false;
+				}
+				submit.text('LOGIN...');
+				if (merchant.val().trim() == '') {
+					mdiv.attr('errr', '');
+					mdiv.find('error span').text('Merchant ID cannot be empty.');
+					isValid = false;
+				} else {
+					mdiv.removeAttr('errr');
+				}
+				if (staff.val().trim() == '') {
+					sdiv.attr('errr', '');
+					sdiv.find('error span').text('Staff ID cannot be empty.');
+					isValid = false;
+				} else {
+					sdiv.removeAttr('errr');
+				}
+				if (password.val().trim() == '') {
+					pdiv.attr('errr', '');
+					pdiv.find('error span').text('Passcode cannot be empty.');
+					isValid = false;
+				} else {
+					pdiv.removeAttr('errr');
+				}
+				if (!isValid) {
+					submit.text('LOGIN');
+					return false;
+				}
+				var url = "/loginStaff";
+				if (staff.val().trim() === '0') {
+					url = "/login";
+				}
+
+				$.post(url,{merchant: merchant.val().trim(),staff : staff.val().trim(),password : password.val().trim()},function(data,res){
+					if(data.success){
+						var storage = window.localStorage;
+
+						storage.setItem("userid",data.result.id);
+						storage.setItem("username",data.result.name);
+						storage.setItem("user",data.result.name);
+						storage.setItem("role",data.result.role);
+						storage.setItem("merchant",merchant.val().trim());
+						storage.setItem("staff",staff.val().trim());
+						storage.setItem("password",password.val().trim());
+						window.location.href = location.protocol +'//'+ location.host +'/#/app';
+					}else{
+						if (data.message === 1001) {
+							pdiv.attr('errr', '');
+							pdiv.find('error span').text('Passcode is incorrect.');
+						}
+						if (data.message === 1002) {
+							mdiv.attr('errr', '');
+							mdiv.find('error span').text('Merchant ID Staff ID is incorrect.');
+							sdiv.attr('errr', '');
+							sdiv.find('error span').text('Merchant ID Staff ID is incorrect.');
+						}
+					}
+					submit.text('LOGIN');
+				});
+			});
+		});
+	</script>
+</body>
+</html>

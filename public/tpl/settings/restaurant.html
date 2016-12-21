@@ -1,0 +1,156 @@
+<div class="restaurant-wrap">
+	<div ng-if="isLoading" class="bbpos-loading">
+		<div class="loader"></div>
+	</div>
+	<div class="restaurant-content">
+		<div fby-Scroll style="width: 100%;height: 100%;">
+			<div class="panel panel-default" style="border:0px;">
+				<div class="clearfix">
+					<div class="set-header">
+						<h3>Basic Information</h3>
+					</div>
+					<!-- <div class="set-btn-right">
+						<input ng-disabled="isLoading" ng-click="save()" class="btn bbpos-btn-bg bbpos-btn-bs btn-lg" type="button" ng-disabled="isSaved" value="SAVE">
+					</div> -->
+
+				</div>
+				<div class="panel-body">
+					<form class="form-horizontal" method="get">
+						<!-- Business Name -->
+						<div class="form-group" style="margin-top: 25px;">
+							<div  class="col-sm-2 text-right" style="max-width: 130px;position: relative;">
+								<div file-Img-Upload is-Img-Change="isImgChange" image64="res.image64" old-Image64="{{res.oldImage64}}"></div>
+
+								<!-- <div class="business-img" file-Img-Upload></div> -->
+								<!-- <i class="icon-ic-store-black ico-basic" style="cursor: pointer;"></i> -->
+								<!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAkCAYAAABIdFAMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAHhJREFUeNo8zjsOxCAMBFB/　KEAUFFR0Cbng3nQPw68ArZdAlOZppPFIBhH5EAB8b+Tlt9MYQ6i1BuqFaq1CKSVcxZ2Acs6406KUgpt5/　LCKuVgz5BDCSb13ZO99ZOdcZGvt4mJjzMVKqcha68iIePB86GAiOv8CDADlIUQBs7MD3wAAAABJRU5ErkJggg%3D%3D" class="business-img"> -->
+								<!-- <img src="../../img/bbpos.png" class="business-img"> -->
+							</div>
+							<div class="col-sm-10 text-left">
+								<div class="input-group" style="width: 100%;">
+									<input id="res-basicname" ng-model="res.basicname" class="form-control" type="text" size="18" alt="Business Name" required="" popover-placement="bottom-left" uib-popover="{{popoverBn.tpl}}"  popover-is-open="popoverBn.isOpen" popover-trigger="none" popover-enable="popoverBn.isOpen" popover-class="valid-res">
+								  	<label for="res-basicname" class="float-label">Business Name<span style="color:Red;">*</span></label>
+							  	</div>
+							</div>
+						</div>
+						<!-- Description -->
+						<div class="form-group">
+							<div class="col-sm-12">
+				              	<label class="fontgray">Description</label>
+			              		<textarea ng-model="res.description" rows="3" class="form-control" style="height: 70px;" maxlength=500 required=""></textarea>
+			              		<div text-Length text="res.description" maxlength="500" txtlength="{{res.desLength}}"></div>
+		              		</div>
+						</div>
+						<div class="form-group">
+							<!-- Email -->
+							<div class="col-sm-6">
+								<div class="input-group" style="width: 100%;">
+									<i class="icon icon-ic-email-black input-ico"></i>
+									<input id="res-email" ng-model="res.email" class="form-control input-position" name="basicname" type="text" size="18" alt="Email" required="">
+								  	<label for="res-email" class="float-label input-position">Email(optional)</label>
+							  	</div>
+							</div>
+							<!-- Phone -->
+							<div class="col-sm-6">
+								<div class="input-group" style="width: 100%;">
+									<i class="icon icon-ic-phone-black input-ico"></i>
+									<input id="res-telphone" ng-model="res.phone" class="form-control input-position" name="basicname" type="text" size="18" alt="Phone" required="">
+								  	<label for="res-telphone" class="float-label input-position">Phone(optional)</label>
+							  	</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<!-- Website -->
+							<div class="col-sm-6">
+								<div class="input-group" style="width: 100%;">
+									<i class="icon icon-ic-home-black input-ico"></i>
+									<input id="res-website" ng-model="res.website" class="form-control input-position" name="basicname" type="text" size="18" alt="Website" required="">
+								  	<label for="res-website" class="float-label input-position">Website(optional)</label>
+							  	</div>
+							</div>
+							<!-- Facebook -->
+							<div class="col-sm-6">
+								<div class="input-group" style="width: 100%;">
+									<i class="icon icon-ic-facebook-black input-ico" style="font-size: 28px;"></i>
+									<input id="res-facebook" ng-model="res.facebook" class="form-control input-position" name="basicname" type="text" size="18" alt="Facebook" required="">
+								  	<label for="res-facebook" class="float-label input-position">Facebook(optional)</label>
+							  	</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<!-- This business is mobile -->
+							<div class="col-sm-6">
+								<div class="input-group" style="width: 100%;">
+									<div class="checkbox">
+							            <label class="i-checks">
+							                <input ng-model="res.isMobile" ng-checked="res.isMobile" type="checkbox" value="">
+							                <i></i>This business is mobile
+						                </label>
+						            </div>
+								</div>
+							</div>
+						</div>
+						<!-- Address -->
+						<div class="form-group">
+							<div class="col-sm-12">
+								<div class="input-group" style="width: 100%;">
+									<input id="res-Address" ng-model="res.address" class="form-control" name="basicname" type="text" size="18" alt="Address" required=""> <!-- popover-placement="bottom-left" uib-popover="{{popoverAd.tpl}}"  popover-is-open="popoverAd.isOpen" popover-trigger="none" popover-enable="popoverAd.isOpen" popover-class="valid-res" -->
+								  	<label for="res-Address" class="float-label">Address</label>
+							  	</div>
+							</div>
+						</div>
+						<!-- Address2 -->
+						<div class="form-group">
+							<div class="col-sm-12">
+								<div class="input-group" style="width: 100%;">
+									<input id="res-Address2" ng-model="res.address2" class="form-control" name="basicname" type="text" size="18" alt="Address2" required=""> <!-- popover-placement="bottom-left" uib-popover="{{popoverAd2.tpl}}"  popover-is-open="popoverAd2.isOpen" popover-trigger="none" popover-enable="popoverAd2.isOpen" popover-class="valid-res" -->
+								  	<label for="res-Address2" class="float-label">Address2</label>
+							  	</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<!-- City -->
+							<div class="col-sm-4">
+								<div class="input-group" style="width: 100%;">
+									<input id="res-City" ng-model="res.city" class="form-control" name="basicname" type="text" size="18" alt="City" required="">
+								  	<label for="res-City" class="float-label">City</label>
+							  	</div>
+							</div>
+							<!-- State -->
+							<div class="col-sm-4">
+								<div class="input-group" style="width: 100%;">
+									<input id="res-State" ng-model="res.state" class="form-control" name="basicname" type="text" size="18" alt="State" required="">
+								  	<label for="res-State" class="float-label">State</label>
+							  	</div>
+							</div>
+							<!-- Postal Code -->
+							<div class="col-sm-4">
+								<div class="input-group" style="width: 100%;">
+									<input id="res-PostalCode" ng-model="res.postalcode" class="form-control" name="basicname" type="text" size="18" alt="Postal Code" required="">
+			              			<div text-Length text="res.postalcode" maxlength="5" txtlength="{{res.postcodeLength}}"></div>
+								  	<label for="res-PostalCode" class="float-label">Postal Code</label>
+							  	</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-6">
+								<label class="float-label" ng-class="{'float-label-select':isCountry}" for="res-Country" style="margin-left: 15px;">Country</label>
+								<select ng-model="country.selected" ng-change="countryChange(country.selected)" ng-options="o as o for o in country.options" class="form-control input-select" id="res-Country" data-toggle="popover" data-placement="bottom"  data-trigger="focus" title="" data-content="Table cannot be empty!">
+								</select>
+								<span class="icon-ic-arrow-drop-down-black icon-down"></span>
+							</div>
+						</div>
+
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="fix-bar">
+		<div class="pull-right v-middle" style="margin-right: 30px;">
+			<button class="btn m-b-xs w-xs btn-default" style="margin: 0 15px;" ng-click="reset()" ng-disabled="isLoading">CANCEL</button>
+			<button type="submit" class="btn m-b-xs w-xs btn-success"  style="margin: 0 15px;" ng-click="save()" ng-disabled="isLoading">SAVE</button>
+		</div>
+	</div>
+</div>

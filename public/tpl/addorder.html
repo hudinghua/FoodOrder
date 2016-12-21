@@ -1,0 +1,31 @@
+<!-- <div add-Order></div> -->
+<div ng-touchstart="touchStartOrder()" class="addorder-form">
+	<div class="title">
+		<div class="top"><strong>New Order&nbsp;</strong><strong>#{{createOrderId}}</strong></div>
+		<div class="buttom"><span>Server:&nbsp;</span>{{userName}}</div>
+	</div>
+	<div class="form-group panel">
+		<div class="col-sm-6">
+	      	<label class="fblabel" for="forInputTable">Table</label>
+			<select ng-model="currentTable" ng-change="tableChange(currentTable)" ng-options="t.tableNo for t in tableItems | unTable | orderBy:'tableNo'" class="form-control input-bottom-line" id="forInputTable" data-toggle="popover" data-placement="bottom"  data-trigger="focus" title="" data-content="Table cannot be empty!">
+			</select>
+			<span class="icon-ic-arrow-drop-down-black tb-icon"></span>
+	    </div>
+		<div class="col-sm-6">
+	      	<label class="fblabel" for="forInputGuest">No. of guest</label>
+	      	<select ng-model="guest" ng-options="g for g in guests" class="form-control input-bottom-line" id="forInputGuest" data-toggle="popover" data-placement="bottom"  data-trigger="focus" title="" data-content="Guest cannot be empty!">
+			</select>
+			<span class="icon-ic-arrow-drop-down-black tb-icon"></span>
+	    </div>
+	    <div class="col-sm-12" style="margin-top: 20px;">
+	    	<label class="fblabel" for="forInputNote">Note</label>
+			<input ng-model="note" class="form-control input-bottom-line" type="text" id="forInputNote">
+	    </div>
+	    <div class="col-sm-12">
+	    	<input type="button" ng-click="createOrder()" class="btn-square yellow" ng-disabled="createbtn.isCreate" value="{{createbtn.text}}">
+	    </div>
+	    <!-- <div class="col-sm-12 addorderbrn">
+	    	<button ng-click="createOrder()" type="button" class="btn btn-lg btn-block btn-bg" ng-disabled="createbtn.isCreate">{{createbtn.text}}</button>
+	    </div> -->
+	</div>
+</div>

@@ -1,0 +1,117 @@
+<div class="menu-wrap">
+	<div ng-if="isLoading" class="bbpos-loading">
+		<div class="loader"></div>
+	</div>
+	<div class="menu-container">
+		<div class="clearfix" style="padding-bottom: 20px;">
+			<div class="set-header">
+				<select ng-change="menuChane(placement.selected)" class="form-control select" ng-model="placement.selected" ng-options="o as o for o in placement.options"></select>
+				<span class="icon-ic-arrow-drop-down-black select-icon"></span>
+			</div>
+			<div class="set-btn-right">
+				<input ng-click="addItem()" class="btn bbpos-btn-bg bbpos-btn-bs btn-lg" type="button" value="{{btnText}}">
+			</div>
+		</div>
+		<!-- Item Table -->
+		<div ng-show="'Item' == placement.selected" class="table-wrap">
+			<div fb-Scroll class="table-responsive">
+		      	<table class="table table-striped b-light">
+			        <thead>
+			          <tr>
+			            <th style="color:#b3b5b4;padding-left: 0px;width: 50%;">Name</th>
+			            <th style="color:#b3b5b4;width: 25%;">Category</th>
+			            <th style="color:#b3b5b4;width: 25%;">Price</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			            <tr ng-repeat="row in items | orderBy:'name'" ng-click="showMenuEdit(row)">
+			             	<td style="padding-left: 0px;">
+			             		<div class="set-cell">
+			             			<span class="text-ellipsis">{{row.mposfb.name || ""}}</span>
+			             		</div>
+			             	</td>
+			             	<td>
+			            		<div class="set-cell" style="min-width:260px;">
+			            			<span class="text-ellipsis">{{row.mposfb.categoryName || ""}}</span>
+			            		</div>
+			            	</td>
+			             	<td>
+			            		<div class="set-cell" style="min-width:260px;">
+			            			<span class="text-ellipsis">{{row.mposfb.price.length==1?"$ "+row.mposfb.price[0].price:row.mposfb.price.length+" pricing"}}</span>
+			            		</div>
+			            	</td>
+			            </tr>
+			        </tbody>
+		      	</table>
+		    </div>
+		  	<!--<div class="paginationwrap">
+		  		<ul uib-pagination boundary-links="true" total-items="page.total" ng-model="page.currentPage" max-size="page.pageSize" ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+		  	</div>-->
+	  	</div>
+		<!-- Category Table -->
+	  	<div ng-show="'Category' == placement.selected" class="table-wrap">
+			<div fb-Scroll class="table-responsive">
+		      	<table class="table table-striped b-light">
+			        <thead>
+			          <tr>
+			            <th style="color:#b3b5b4;padding-left: 0px;width: 50%;">Name</th>
+			            <th style="color:#b3b5b4;width: 50%;">Assigned items</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			            <tr ng-repeat="row in categorys | orderBy:'name'" ng-click="showMenuCategory(row)">
+			             	<td style="padding-left: 0px;">
+			             		<div class="set-cell">
+			             			<span class="text-ellipsis">{{row.name || ""}}</span>
+			             		</div>
+			             	</td>
+			             	<td>
+			            		<div class="set-cell" style="min-width:260px;">
+			            			<span class="text-ellipsis">{{row.containItems>0?row.containItems+"Items":""}}</span>
+			            		</div>
+			            	</td>
+			            </tr>
+			        </tbody>
+		      	</table>
+		    </div>
+		  	<!--<div class="paginationwrap">
+		  		<ul uib-pagination boundary-links="true" total-items="pageCategory.total" ng-model="pageCategory.currentPage" max-size="pageCategory.pageSize" ng-change="pageChangedCategory()" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+		  	</div>-->
+	  	</div>
+		<!-- Modifier Group Table -->
+	  	<div ng-show="'Modifier Group' == placement.selected" class="table-wrap">
+	  		<div fb-Scroll class="table-responsive">
+		      	<table class="table table-striped b-light">
+			        <thead>
+			          <tr>
+			            <th style="color:#b3b5b4;padding-left: 0px;width: 50%;">Name</th>
+			            <th style="color:#b3b5b4;width: 50%;">Assigned items</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			            <tr ng-repeat="row in modifiers | orderBy:'name'" ng-click="showMenuModifier(row)">
+			             	<td style="padding-left: 0px;">
+			             		<div class="set-cell">
+			             			<span class="text-ellipsis">{{row.name || ""}}</span>
+			             		</div>
+			             	</td>
+			             	<td>
+			            		<div class="set-cell" style="min-width:260px;">
+			            			<span class="text-ellipsis">{{row.assignedItems || ""}}</span>
+			            		</div>
+			            	</td>
+			            </tr>
+			        </tbody>
+		      	</table>
+		    </div>
+			<!--<div class="paginationwrap">
+		  		<ul uib-pagination boundary-links="true" total-items="pageModify.total" ng-model="pageModify.currentPage" max-size="pageModify.pageSize" ng-change="pageChangedModify()" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+		  	</div>-->
+	  	</div>
+  	</div>
+  	<div bbpos-Menu-Edit class="edit-menu" hide-menu-edit="hideMenuEdit()" itemid="{{row.itemid}}" itemname="{{row.name}}" itempos="{{row.posname}}" itemcategory="{{itemCategory}}" prices="{{row.prices}}" itemgroup="{{row.modifygroup}}" ng-class="{'menu-show':isEdit,'slideInRight animated':isEdit}"></div>
+
+  	<div bbpos-Menu-Category class="edit-menu" hide-menu-edit="hideMenuEdit()" categoryid="{{rowCategory.categoryid}}" categoryname="{{rowCategory.name}}" categorypos="{{rowCategory.posname}}" categoryassign="{{rowCategory.assign}} items" ng-class="{'menu-show':isCategory,'slideInRight animated':isCategory}"></div>
+
+  	<div bbpos-Menu-Modifier class="edit-menu" hide-menu-edit="hideMenuEdit()" itemid="{{rowModifier.itemid}}" itemname="{{rowModifier.name}}" itempos="{{rowModifier.posname}}" itemcategory="{{rowModifier.category}}" prices="{{rowModifier.prices}}" itemgroup="{{rowModifier.modifygroup}}" ng-class="{'menu-show':isModifier,'slideInRight animated':isModifier}"></div>
+</div>

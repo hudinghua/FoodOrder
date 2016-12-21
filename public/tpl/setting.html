@@ -1,0 +1,52 @@
+<div class="settingwrap">
+	<div class="module-title" style="background-color: #37474F;">
+		Settings
+	</div>
+	<div class="tab-setting">
+		<div class="nav-setting">
+			<ul>
+				<li ng-repeat="tab in tabs" ng-click="triggerTab(tab)" ng-class="{active:isActive(tab.id)}"> <!-- ui-sref = "app.settings.{{tab.nick}}" -->
+					<a href="javascript:;">{{tab.name}}</a>
+					<div class="active-line bg-line"></div>
+				</li>
+			</ul>
+		</div>
+		<div class="tab-selpanel" ng-class="{tabActive:isActive(1001)}" data-ui-view="restaurant" style="height: calc(100% - 80px);"></div>
+		<div class="tab-selpanel" ng-class="{tabActive:isActive(1002)}" data-ui-view="staff"></div>
+		<div class="tab-selpanel" ng-class="{tabActive:isActive(1003)}" data-ui-view="floorplan"></div>
+		<div class="tab-selpanel" ng-class="{tabActive:isActive(1004)}" data-ui-view="menu"></div>
+		<div class="tab-selpanel" ng-class="{tabActive:isActive(1005)}" data-ui-view="receipt"></div>
+		<div class="tab-selpanel" ng-class="{tabActive:isActive(1006)}" data-ui-view="checkout"></div>
+	</div>
+	<!-- s-Is save -->
+	<script type="text/ng-template" id="tpl/assignItems.html">
+		<div class="modal-header">
+            <h4 class="modal-title">Assign item</h4>
+        </div>
+        <div class="modal-body" style="overflow: auto;max-height: 420px;">
+            <table class="table  b-t b-light  table-hover">
+                <tbody>
+                    <tr ng-repeat="row in assignItems">
+                        <td style="width: 50px;">
+                            <label class="i-checks">
+				                <input ng-click="assignRow(row)" ng-checked="row.isChecked"  type="checkbox" value="">
+				                <i></i>
+			                </label>
+                        </td>
+                        <td ng-click="assignRow(row)">{{row.mposfb.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button ng-click="CANCEL()" type="button" class="btn btn-default">CANCEL</button>
+            <button ng-click="ASSIGN()" type="button" class="btn btn-success">ASSIGN</button>
+        </div>
+	</script>
+	<!-- e-Is save -->
+	<!-- <div  fb-Scroll class="setting-scroll">
+		<div class="settingwell">
+			
+		</div>
+	</div> -->
+</div>

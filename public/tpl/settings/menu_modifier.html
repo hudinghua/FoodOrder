@@ -1,0 +1,117 @@
+<div class="edit-menu">
+	<div class="header">
+		<strong>Edit Modifier Group</strong>
+		<div class="icon icon-ic-delete-black menu-remove" ng-click="deleteModifier()"></div>
+		<div class="icon icon-ic-done-black menu-save" ng-click="saveModifier()"></div>
+	</div>
+	<div class="content">
+		<div id="modifier-group-edit" fby-scroll class="menu-item">
+
+			<form name="modifierForm" class="form-horizontal" method="get">
+				<div class="form-group" style="margin-top: 10px;">
+					<div class="col-sm-12 has-error">
+						<div style="position: relative;">
+							<input id="modifier-name" ng-model="modifierData.name" spellcheck="false" class="form-control input-position" name="modifiername" type="text" size="18" alt="Modifier Name" aria-invalid="false" required>
+						  	<label for="modifier-name" class="float-label input-position">Name</label>
+					  	</div>
+						<p ng-show="modifierForm.modifiername.$error.required && showError" class="help-block">Name is required.</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<!-- modifier items -->
+					<div class="col-sm-6">
+						<div style="position: relative;">
+							<input id="modifier-assign" ng-model="modifierData.assignedItems" spellcheck="false" class="form-control input-position" type="text" size="18" alt="Modifier assign" aria-invalid="false" required="">
+						  	<label for="modifier-assign" class="float-label input-position">Assign items</label>
+					  	</div>
+					</div>
+					<!-- POS Name -->
+					<div class="col-sm-6">
+						<div style="position: relative;">
+							<input id="modifier-pos" ng-model="modifierData.posName" spellcheck="false" class="form-control input-position" type="text" size="18" alt="Modifier POS Name" aria-invalid="false" required="">
+						  	<label for="modifier-pos" class="float-label input-position">POS Name(optional)</label>
+					  	</div>
+					</div>
+				</div>
+				<div class="form-group" style="margin-top: 10px;">
+					<div class="col-sm-12">
+						<input ng-click="assignItem()" class="btn bbpos-btn-bg bbpos-btn-bs btn-lg" style="margin-left:5px;box-shadow: 0 5px 10px #999;" type="button" value="ASSIGN ITEM">
+					</div>
+				</div>
+				<div class="form-group">
+					<hr style="border-top: 1px solid #ddd;">
+					<div class="col-sm-12">
+						<h3>Modifier Selection Range</h3>
+					</div>
+					<!-- Minimum selection -->
+					<div class="col-sm-6">
+						<div style="position: relative;">
+							<input id="modifier-min" ng-model="modifierData.min" spellcheck="false" class="form-control input-position" type="text" size="18" alt="Minimum selection" aria-invalid="false" required="">
+						  	<label for="modifier-min" class="float-label input-position">Minimum selection</label>
+					  	</div>
+					</div>
+					<!-- Maximum selection -->
+					<div class="col-sm-6">
+						<div style="position: relative;">
+							<input id="modifier-max" ng-model="modifierData.max" spellcheck="false" class="form-control input-position" type="text" size="18" alt="Maximum selection" aria-invalid="false" required="">
+						  	<label for="modifier-max" class="float-label input-position">Maximum selection</label>
+					  	</div>
+					</div>
+				</div>
+				<div class="pricing" style="margin-top: 35px;padding-bottom: 25px;">
+					<h3>Modifier</h3>
+					<table class="table">
+						<tbody>
+							<tr ng-repeat="option in modifierData.options">
+								<td style="width:26px">
+									<div class="icon">
+										<i class="icon" ng-class="{'icon-ic-reorder-black':!$last,'icon-ic-content-add-black':$last}" style="opacity: .54;"></i>
+									</div>
+								</td>
+								<td style="width:126px;">
+									<div style="position: relative;">
+										<input ng-model="option.name" ng-keyup="priceEdit(price.name)" spellcheck="false" class="form-control input-position" name="pricename" type="text" size="18" alt="Name" aria-invalid="false" required="">
+								  	</div>
+								</td>
+								<td style="width:126px;">
+									<div style="position: relative;">
+										<input ng-model="option.price" spellcheck="false" class="form-control input-position" name="price" type="number" size="16" alt="price" aria-invalid="false" required="">
+								  	</div>
+								</td>
+								<td style="width:26px;">
+									<div class="icon" ng-class="{'hide-icon':$last}">
+										<i class="icon icon-ic-remove-circle-black" style="opacity: .54;" ng-click="delPrice(option)"></i>
+									</div>
+								</td>
+							</tr>
+							<!-- <tr>
+								<td style="width:26px">
+									<div class="icon">
+										<i ng-click="addPrice()" class="icon icon-ic-content-add-black" style="opacity: .54;" popover-placement="bottom-left" uib-popover="{{popover.priceTpl}}"  popover-is-open="popover.isPrice" popover-trigger="none"></i>
+									</div>
+								</td>
+								<td style="width:126px;">
+									<div style="position: relative;">
+										<input id="menu-pricename" ng-model="newPriceName" spellcheck="false" class="form-control input-position" name="pricename" type="text" size="18" alt="Name" aria-invalid="false" ng-focus="hideValid()" placeholder="New price" required="">
+										PriceName cannot be empty!
+								  	</div>
+								</td>
+								<td style="width:126px;">
+									<div style="position: relative;">
+										<input id="menu-price" ng-model="newPrice" spellcheck="false" class="form-control input-position" name="price" type="text" size="18" alt="price" aria-invalid="false" ng-focus="hideValid()" placeholder="$0.00" required="">
+										Price cannot be empty!
+								  	</div>
+								</td>
+								<td style="width:26px;"></td>
+							</tr> -->
+						</tbody>
+					</table>
+				</div>
+			</form>
+
+		</div>
+	</div>
+	<div ng-click="hideMenuEdit()" class="slide-right  icon-arrow-right">
+		<i class="glyphicon glyphicon-step-forward"></i>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+<div class="edit-menu">
+	<div class="header">
+		<strong>Edit Category</strong>
+		<div class="icon icon-ic-delete-black menu-remove" ng-click="deleteCategory()"></div>
+		<div class="icon icon-ic-done-black menu-save" ng-click="saveCategory()"></div>
+	</div>
+	<div class="content">
+		<div fby-scroll class="menu-item">
+
+			<form name="categoryForm" class="form-horizontal" >
+				<div class="form-group" style="margin-top: 10px;">
+					<div class="col-sm-12 has-error">
+						<div style="position: relative;">
+							<input id="category-name" ng-model="categoryData.name" spellcheck="false" class="form-control input-position" name="categoryname" type="text" size="18" alt="Category Name" aria-invalid="false" required>
+						  	<label for="category-name" class="float-label input-position">Name</label>
+					  	</div>
+						<p ng-show="categoryForm.categoryname.$error.required && showError" class="help-block">Name is required.</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<!-- Category items -->
+					<div class="col-sm-6">
+						<div style="position: relative;">
+							<input id="category-assign" ng-model="categoryData.containItems" spellcheck="false" class="form-control input-position" name="categoryassign" type="text" size="18" alt="Category assign" aria-invalid="false" required="">
+						  	<label for="category-assign" class="float-label input-position">Category items</label>
+					  	</div>
+					</div>
+					<!-- POS Name -->
+					<div class="col-sm-6">
+						<div style="position: relative;">
+							<input id="category-pos" ng-model="categoryData.posName" spellcheck="false" class="form-control input-position" name="basicname" type="text" size="18" alt="Category POS Name" aria-invalid="false" required="">
+						  	<label for="category-pos" class="float-label input-position">POS Name(optional)</label>
+					  	</div>
+					</div>
+				</div>
+				<div class="form-group" style="margin-top: 10px;">
+					<div class="col-sm-12">
+						<input ng-click="assignItem()" class="btn bbpos-btn-bg bbpos-btn-bs btn-lg" style="margin-left:5px;box-shadow: 0 5px 10px #999;" type="button" value="ASSIGN ITEM">
+					</div>
+				</div>
+			</form>
+
+		</div>
+	</div>
+	<div ng-click="hideMenuEdit()" class="slide-right  icon-arrow-right">
+		<i class="glyphicon glyphicon-step-forward"></i>
+	</div>
+</div>

@@ -1,0 +1,92 @@
+<div class="donewrap">
+	<div class="navdone">
+		<div class="top">
+			<div  ui-sref="app" style="width: 165px;">
+				<i class="icon-ic-arrow-back-black back"></i>
+				<strong>Done</strong>
+			</div>
+		</div>
+	</div>
+	<script type="text/ng-template" id="tpl/donedetail.html">
+		<div class="container-fluid container-plugin">
+			<div class="bgicon"></div>
+			<div class="row">
+			    <div class="col-md-6 row-height">
+			    	<label>Status:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.Status}}</span>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col-md-6 row-height">
+			    	<label>Date:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.TransactionDate | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col-md-6 row-height">
+			    	<label>Token:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.Token}}</span>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col-md-6 row-height">
+			    	<label>Authorization Code:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.AuthorizationCode}}</span>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col-md-6 row-height">
+			    	<label>Payment Type:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.PaymentType}}</span>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col-md-6 row-height">
+			    	<label>Account Number:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.AccountNumber}}</span>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col-md-6 row-height">
+			    	<label>Entry Node:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.EntryMode}}</span>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col-md-6 row-height">
+			    	<label>Customer Name:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.CustomerName}}</span>
+			    </div>
+			</div>
+			<div class="row" style="margin-top: 15px;">
+			    <div class="col-md-6 row-height">
+			    	<label>Amount Approved:</label>
+			    </div>
+			    <div class="col-md-6 row-height">
+			    	<span>{{chargeParam.AmountApproved}}</span>
+			    </div>
+			</div>
+			<div class="row" style="margin-top: 35px;">
+				<div class="col-md-12" style="text-align: center;">
+					<input ng-click="backFloor()" class="btn btn-backfloor" type="button" value="Back to floorplan">
+				</div>
+			</div>
+		</div>
+	</script>
+</div>

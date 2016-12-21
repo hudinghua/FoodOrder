@@ -1,0 +1,1390 @@
+{
+  "total_rows": 20,
+  "offset": 0,
+  "rows": [
+    {
+      "key": "C2",
+      "id": "c4354ed6-45a0-40d4-b29d-e0c0f73c4e3e",
+      "value": {
+        "amount": 1285,
+        "created_at": "2016-05-19 02:28:09.672",
+        "created_by": "manager",
+        "customers": 4,
+        "dishes": 3,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "301",
+            "name": "Arancini",
+            "org_id": "i:7f7a1b10-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3009",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "303",
+            "name": "Baked veggie samosas",
+            "org_id": "i:8c4148f0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3027",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 495,
+            "count": 1,
+            "id": "401",
+            "name": "Black forest frozen cheesecake",
+            "org_id": "i:27cee8e0-0b66-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3166",
+              "name": "",
+              "price": 495
+            },
+            "total_tax": 0,
+            "unit_price": 495,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 3,
+        "modify_at": "2016-05-19 02:28:09.672",
+        "modify_by": "manager",
+        "number": "110005",
+        "summary": "Arancini,Baked veggie samosas,Black forest frozen cheesecake",
+        "table": "C2",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "c4354ed6-45a0-40d4-b29d-e0c0f73c4e3e",
+        "_rev": "1-d260d1c797fd6c38ddbd1408460fd570"
+      }
+    },
+    {
+      "key": "C4",
+      "id": "cb70bb86-2f31-4bfe-bf5e-3a51f4a55473",
+      "value": {
+        "amount": 4065,
+        "created_at": "2016-05-13 08:32:32.782",
+        "created_by": "manager",
+        "customers": 4,
+        "discounts": [
+          {
+            "id": "f1b3bcd6-353b-4b4a-968e-0840e2c7af85",
+            "name": "VIP",
+            "percentage": false,
+            "value": 10
+          }
+        ],
+        "dishes": 3,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 2790,
+            "count": 2,
+            "id": "201",
+            "name": "Asian fish stew",
+            "org_id": "i:f21f9510-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:2554",
+              "name": "",
+              "price": 1395
+            },
+            "total_tax": 0,
+            "unit_price": 1395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 790,
+            "count": 2,
+            "id": "303",
+            "name": "Baked veggie samosas",
+            "org_id": "i:8c4148f0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3027",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 495,
+            "count": 1,
+            "id": "401",
+            "name": "Black forest frozen cheesecake",
+            "org_id": "i:27cee8e0-0b66-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3166",
+              "name": "",
+              "price": 495
+            },
+            "total_tax": 0,
+            "unit_price": 495,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 5,
+        "modify_at": "2016-05-26 15:03:03.102",
+        "modify_by": "manager",
+        "number": "110002",
+        "summary": "Asian fish stew,Baked veggie samosas,Black forest frozen cheesecake",
+        "table": "C4",
+        "total_discount": 10,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "cb70bb86-2f31-4bfe-bf5e-3a51f4a55473",
+        "_rev": "17-5838f392c7e16d6ed4d7b02f54a92b50",
+        "_conflicts": [
+          "12-47704ce48d78c63806808d4e1b1915c2",
+          "8-50c646602553fc9894e721413342d036",
+          "6-d072d756a44e0c091c74d07a07a3c400",
+          "3-4c0e99c40e6dcbf2ab3116ae3fd2f5bb"
+        ]
+      }
+    },
+    {
+      "key": "M1",
+      "id": "b19692ec-32f0-466e-ad8c-76fbe448bc30",
+      "value": {
+        "amount": 3995,
+        "created_at": "2016-08-17 02:49:00.832",
+        "created_by": "manager",
+        "customers": 4,
+        "dishes": 6,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "301",
+            "name": "Arancini",
+            "org_id": "i:7f7a1b10-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 395,
+            "count": 2,
+            "id": "303",
+            "name": "Baked veggie samosas",
+            "org_id": "i:8c4148f0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 495,
+            "count": 1,
+            "id": "401",
+            "name": "Black forest frozen cheesecake",
+            "org_id": "i:27cee8e0-0b66-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 495
+            },
+            "total_tax": 0,
+            "unit_price": 495,
+            "unit_tax": 0
+          },
+          {
+            "amount": 320,
+            "count": 1,
+            "id": "524",
+            "name": "Blue Girl",
+            "org_id": "i:833a27b0-10f4-11e6-85c0-c3ea3d04186e",
+            "price": {
+              "name": "",
+              "price": 320
+            },
+            "total_tax": 0,
+            "unit_price": 320,
+            "unit_tax": 0
+          },
+          {
+            "amount": 600,
+            "count": 1,
+            "id": "116",
+            "name": "Caprese soup",
+            "org_id": "i:a903c310-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "Standard",
+              "price": 600
+            },
+            "total_tax": 0,
+            "unit_price": 600,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1395,
+            "count": 1,
+            "id": "201",
+            "name": "Asian fish stew",
+            "org_id": "i:f21f9510-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 1395
+            },
+            "total_tax": 0,
+            "unit_price": 1395,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 7,
+        "modify_at": "2016-08-19 10:27:24",
+        "modify_by": "Ben",
+        "number": "110016",
+        "summary": "Arancini,Baked veggie samosas,Black forest frozen cheesecake,Blue Girl,Caprese soup,Asian fish stew",
+        "table": "M1",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "b19692ec-32f0-466e-ad8c-76fbe448bc30",
+        "_rev": "10-b1ccf71bd6524085f42c69712259a2ab"
+      }
+    },
+    {
+      "key": "M2",
+      "id": "o:091e3bd0-6426-11e6-9c3c-5f2ebf7f2e54",
+      "value": {
+        "amount": 4240,
+        "created_at": "2016-08-17 10:55:20",
+        "created_by": "Ben",
+        "customers": 4,
+        "dishes": 7,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 750,
+            "count": 1,
+            "id": "504",
+            "name": "Classic wet martini",
+            "org_id": "i:f14b4a90-0b63-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 750
+            },
+            "total_tax": 0,
+            "unit_price": 750,
+            "unit_tax": 0
+          },
+          {
+            "amount": 600,
+            "count": 1,
+            "id": "103",
+            "name": "Chicken Caesar",
+            "org_id": "i:66c63640-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "Standard",
+              "price": 600
+            },
+            "summary": "Standard",
+            "total_tax": 0,
+            "unit_price": 600,
+            "unit_tax": 0
+          },
+          {
+            "amount": 350,
+            "count": 1,
+            "id": "603",
+            "name": "Boddingtons",
+            "org_id": "i:2173dc70-0b71-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "Half Pint",
+              "price": 350
+            },
+            "summary": "Half Pint",
+            "taxes": [],
+            "total_tax": 0,
+            "unit_price": 350,
+            "unit_tax": 0
+          },
+          {
+            "amount": 375,
+            "count": 1,
+            "id": "601",
+            "name": "Guinness",
+            "org_id": "1d803dac-3736-4049-acc6-ca79cc9ac3d4",
+            "price": {
+              "name": "Half Pint",
+              "price": 375
+            },
+            "summary": "Half Pint",
+            "taxes": [],
+            "total_tax": 0,
+            "unit_price": 375,
+            "unit_tax": 0
+          },
+          {
+            "amount": 375,
+            "count": 1,
+            "id": "602",
+            "name": "Hoegaarden",
+            "org_id": "97cd4040-5e1f-4f6f-bdda-e94c1b507ce9",
+            "price": {
+              "name": "Half Pint",
+              "price": 375
+            },
+            "summary": "Half Pint",
+            "taxes": [],
+            "total_tax": 0,
+            "unit_price": 375,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1395,
+            "count": 1,
+            "id": "201",
+            "name": "Asian fish stew",
+            "org_id": "i:f21f9510-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:2554",
+              "name": "",
+              "price": 1395
+            },
+            "total_tax": 0,
+            "unit_price": 1395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "303",
+            "name": "Baked veggie samosas",
+            "org_id": "i:8c4148f0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3027",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 7,
+        "modify_at": "2016-08-19 02:10:52.862",
+        "modify_by": "manager",
+        "number": "229191",
+        "summary": "Classic wet martini,Chicken Caesar,Boddingtons,Guinness,Hoegaarden,Asian fish stew,Baked veggie samosas",
+        "table": "M2",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "o:091e3bd0-6426-11e6-9c3c-5f2ebf7f2e54",
+        "_rev": "5-9a1f57597c7a586bfdba5ca967eb781f",
+        "_conflicts": [
+          "2-2d16f72dbc4d534d4b53f627ff49d4af"
+        ]
+      }
+    },
+    {
+      "key": "M3",
+      "id": "o:63bb0cd0-62be-11e6-b58d-dd9f1f97a9b9",
+      "value": {
+        "amount": 8885,
+        "created_at": "2016-08-15 16:0:53",
+        "customers": 5,
+        "dishes": 9,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 750,
+            "count": 2,
+            "id": "502",
+            "name": "Blue Hawaiian",
+            "org_id": "i:eb81c630-0b62-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 750
+            },
+            "total_tax": 0,
+            "unit_price": 750,
+            "unit_tax": 0
+          },
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "520",
+            "name": "Cappuccino",
+            "org_id": "06f05805-018d-42c2-9c11-6b152ffcba01",
+            "price": {
+              "name": "Venti",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 750,
+            "count": 3,
+            "id": "505",
+            "name": "Cosmopolitan",
+            "org_id": "i:c517a650-0b66-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 750
+            },
+            "total_tax": 0,
+            "unit_price": 750,
+            "unit_tax": 0
+          },
+          {
+            "amount": 750,
+            "count": 1,
+            "id": "603",
+            "name": "Boddingtons",
+            "org_id": "i:2173dc70-0b71-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "Full Pint",
+              "price": 750
+            },
+            "total_tax": 0,
+            "unit_price": 750,
+            "unit_tax": 0
+          },
+          {
+            "amount": 495,
+            "count": 1,
+            "id": "405",
+            "name": "Dairy free vanilla ice cream",
+            "org_id": "i:4f44af90-0b66-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 495
+            },
+            "total_tax": 0,
+            "unit_price": 495,
+            "unit_tax": 0
+          },
+          {
+            "amount": 750,
+            "count": 1,
+            "id": "504",
+            "name": "Classic wet martini",
+            "org_id": "i:f14b4a90-0b63-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 750
+            },
+            "total_tax": 0,
+            "unit_price": 750,
+            "unit_tax": 0
+          },
+          {
+            "amount": 750,
+            "count": 1,
+            "id": "7.5",
+            "name": "Grappino",
+            "org_id": "i:d6e01c00-0b66-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 750
+            },
+            "total_tax": 0,
+            "unit_price": 750,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1500,
+            "count": 1,
+            "id": "203",
+            "name": "Courgette spaghetti with rocket pesto",
+            "org_id": "i:082da3b0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 1500
+            },
+            "total_tax": 0,
+            "unit_price": 1500,
+            "unit_tax": 0
+          },
+          {
+            "amount": 495,
+            "count": 1,
+            "id": "417",
+            "name": "St. clement's posset",
+            "org_id": "i:a97d9c10-0b66-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 495
+            },
+            "total_tax": 0,
+            "unit_price": 495,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 12,
+        "modify_at": "2016-08-17 11:16:1",
+        "modify_by": "Ben",
+        "number": "942621",
+        "summary": "Blue Hawaiian,Cappuccino,Cosmopolitan,Boddingtons,Dairy free vanilla ice cream,Classic wet martini,Grappino,Courgette spaghetti with rocket pesto,St. clement's posset",
+        "table": "M3",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "o:63bb0cd0-62be-11e6-b58d-dd9f1f97a9b9",
+        "_rev": "11-2ad0f4c403158b8c1b34db7980125cf4"
+      }
+    },
+    {
+      "key": "M4",
+      "id": "d30ef292-a576-4236-841d-fdc947caf4ae",
+      "value": {
+        "amount": 2185,
+        "created_at": "2016-08-10 07:10:15.974",
+        "created_by": "manager",
+        "customers": 5,
+        "dishes": 3,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "303",
+            "name": "Baked veggie samosas",
+            "org_id": "i:8c4148f0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3027",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1395,
+            "count": 1,
+            "id": "201",
+            "name": "Asian fish stew",
+            "org_id": "i:f21f9510-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:2554",
+              "name": "",
+              "price": 1395
+            },
+            "total_tax": 0,
+            "unit_price": 1395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "301",
+            "name": "Arancini",
+            "org_id": "i:7f7a1b10-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3009",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 3,
+        "modify_at": "2016-08-10 07:10:21.616",
+        "modify_by": "manager",
+        "number": "110015",
+        "summary": "Baked veggie samosas,Asian fish stew,Arancini",
+        "table": "M4",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "d30ef292-a576-4236-841d-fdc947caf4ae",
+        "_rev": "3-1b884f299120ad8530d8a21fa58970b2"
+      }
+    },
+    {
+      "key": "M4",
+      "id": "o:dce7c350-6426-11e6-9c3c-5f2ebf7f2e54",
+      "value": {
+        "amount": 1070,
+        "created_at": "2016-08-17 11:1:15",
+        "created_by": "Ben",
+        "customers": 2,
+        "dishes": 2,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 320,
+            "count": 1,
+            "id": "524",
+            "name": "Blue Girl",
+            "org_id": "i:833a27b0-10f4-11e6-85c0-c3ea3d04186e",
+            "price": {
+              "name": "",
+              "price": 320
+            },
+            "total_tax": 0,
+            "unit_price": 320,
+            "unit_tax": 0
+          },
+          {
+            "amount": 750,
+            "count": 1,
+            "id": "503",
+            "name": "Chai Martini",
+            "org_id": "i:a26673f0-0b63-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 750
+            },
+            "total_tax": 0,
+            "unit_price": 750,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 2,
+        "modify_at": "2016-08-18 12:14:3",
+        "modify_by": "Ben",
+        "number": "856798",
+        "summary": "Blue Girl,Chai Martini",
+        "table": "M4",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "o:dce7c350-6426-11e6-9c3c-5f2ebf7f2e54",
+        "_rev": "2-ea0d70ba01342d19a200adfc1b5934ce"
+      }
+    },
+    {
+      "key": "M4",
+      "id": "o:de988090-6426-11e6-9c3c-5f2ebf7f2e54",
+      "value": {
+        "amount": 0,
+        "created_at": "2016-08-17 11:1:18",
+        "created_by": "Ben",
+        "customers": 2,
+        "dishes": 0,
+        "is_payment": false,
+        "items": [],
+        "items_count": 0,
+        "number": "856798",
+        "summary": "",
+        "table": "M4",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "o:de988090-6426-11e6-9c3c-5f2ebf7f2e54",
+        "_rev": "1-2ae9a448d848d8a989d7804fab0c7644"
+      }
+    },
+    {
+      "key": "M5",
+      "id": "fdcf985a-1a63-450e-8dfb-3d973f8fe660",
+      "value": {
+        "amount": 1890,
+        "created_at": "2016-08-17 16:23:01.460",
+        "created_by": "manager",
+        "customers": 4,
+        "dishes": 2,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 1395,
+            "count": 1,
+            "id": "201",
+            "name": "Asian fish stew",
+            "org_id": "i:f21f9510-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 1395
+            },
+            "total_tax": 0,
+            "unit_price": 1395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 495,
+            "count": 1,
+            "id": "401",
+            "name": "Black forest frozen cheesecake",
+            "org_id": "i:27cee8e0-0b66-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 495
+            },
+            "total_tax": 0,
+            "unit_price": 495,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 2,
+        "modify_at": "2016-08-18 12:15:45",
+        "modify_by": "Ben",
+        "number": "110002",
+        "summary": "Asian fish stew,Black forest frozen cheesecake",
+        "table": "M5",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "fdcf985a-1a63-450e-8dfb-3d973f8fe660",
+        "_rev": "5-5900897cc213919bc40d9b4ff0e4d09b"
+      }
+    },
+    {
+      "key": "M7",
+      "id": "o:a2a1faa0-6429-11e6-9c3c-5f2ebf7f2e54",
+      "value": {
+        "amount": 8045,
+        "created_at": "2016-08-17 11:21:6",
+        "created_by": "Ben",
+        "customers": 3,
+        "dishes": 5,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 3750,
+            "count": 5,
+            "id": "603",
+            "name": "Boddingtons",
+            "org_id": "i:2173dc70-0b71-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "Full Pint",
+              "price": 750
+            },
+            "total_tax": 0,
+            "unit_price": 750,
+            "unit_tax": 0
+          },
+          {
+            "amount": 600,
+            "count": 1,
+            "id": "116",
+            "name": "Caprese soup",
+            "org_id": "i:a903c310-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "Standard",
+              "price": 600
+            },
+            "total_tax": 0,
+            "unit_price": 600,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1500,
+            "count": 1,
+            "id": "203",
+            "name": "Courgette spaghetti with rocket pesto",
+            "org_id": "i:082da3b0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "",
+              "price": 1500
+            },
+            "total_tax": 0,
+            "unit_price": 1500,
+            "unit_tax": 0
+          },
+          {
+            "amount": 320,
+            "count": 1,
+            "id": "524",
+            "name": "Blue Girl",
+            "org_id": "i:833a27b0-10f4-11e6-85c0-c3ea3d04186e",
+            "price": {
+              "name": "",
+              "price": 320
+            },
+            "total_tax": 0,
+            "unit_price": 320,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1875,
+            "count": 5,
+            "id": "520",
+            "name": "Cappuccino",
+            "org_id": "06f05805-018d-42c2-9c11-6b152ffcba01",
+            "price": {
+              "name": "Grande",
+              "price": 375
+            },
+            "total_tax": 0,
+            "unit_price": 375,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 13,
+        "modify_at": "2016-08-17 15:36:20",
+        "number": "647828",
+        "summary": "Boddingtons,Caprese soup,Courgette spaghetti with rocket pesto,Blue Girl,Cappuccino",
+        "table": "M7",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "o:a2a1faa0-6429-11e6-9c3c-5f2ebf7f2e54",
+        "_rev": "12-0b7dca6584a5d20258681e0e2943dc49"
+      }
+    },
+    {
+      "key": "M7",
+      "id": "o:a4f7f890-6429-11e6-9c3c-5f2ebf7f2e54",
+      "value": {
+        "amount": 7120,
+        "created_at": "2016-08-17 11:21:10",
+        "created_by": "Ben",
+        "customers": 3,
+        "dishes": 4,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 700,
+            "count": 2,
+            "id": "603",
+            "name": "Boddingtons",
+            "org_id": "i:2173dc70-0b71-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "Half Pint",
+              "price": 350
+            },
+            "total_tax": 0,
+            "unit_price": 350,
+            "unit_tax": 0
+          },
+          {
+            "amount": 4975,
+            "count": 5,
+            "id": "103",
+            "name": "Chicken Caesar",
+            "org_id": "i:66c63640-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "name": "Large",
+              "price": 995
+            },
+            "total_tax": 0,
+            "unit_price": 995,
+            "unit_tax": 0
+          },
+          {
+            "amount": 320,
+            "count": 1,
+            "id": "524",
+            "name": "Blue Girl",
+            "org_id": "i:833a27b0-10f4-11e6-85c0-c3ea3d04186e",
+            "price": {
+              "name": "",
+              "price": 320
+            },
+            "total_tax": 0,
+            "unit_price": 320,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1125,
+            "count": 3,
+            "id": "520",
+            "name": "Cappuccino",
+            "org_id": "06f05805-018d-42c2-9c11-6b152ffcba01",
+            "price": {
+              "name": "Grande",
+              "price": 375
+            },
+            "total_tax": 0,
+            "unit_price": 375,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 11,
+        "modify_at": "2016-08-17 15:29:46",
+        "number": "647828",
+        "summary": "Boddingtons,Chicken Caesar,Blue Girl,Cappuccino",
+        "table": "M7",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "o:a4f7f890-6429-11e6-9c3c-5f2ebf7f2e54",
+        "_rev": "16-e0c52c7bd3c4b17082f9887186a43550"
+      }
+    },
+    {
+      "key": "T1",
+      "id": "c876f561-c5b3-4df3-b7c6-0becff2aaece",
+      "value": {
+        "amount": 990,
+        "created_at": "2016-06-12 10:53:29.248",
+        "created_by": "manager",
+        "customers": 4,
+        "dishes": 2,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 640,
+            "count": 2,
+            "id": "524",
+            "name": "Blue Girl",
+            "org_id": "i:833a27b0-10f4-11e6-85c0-c3ea3d04186e",
+            "price": {
+              "$$hashKey": "object:1478",
+              "name": "",
+              "price": 320
+            },
+            "total_tax": 0,
+            "unit_price": 320,
+            "unit_tax": 0
+          },
+          {
+            "amount": 350,
+            "count": 1,
+            "id": "603",
+            "name": "Boddingtons",
+            "org_id": "i:2173dc70-0b71-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:6013",
+              "name": "Half Pint",
+              "price": 350
+            },
+            "summary": "Half Pint",
+            "taxes": [],
+            "total_tax": 0,
+            "unit_price": 350,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 3,
+        "modify_at": "2016-06-12 10:53:44.743",
+        "modify_by": "manager",
+        "number": "10001",
+        "summary": "Blue Girl,Boddingtons",
+        "table": "T1",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "c876f561-c5b3-4df3-b7c6-0becff2aaece",
+        "_rev": "2-916b3447f5fb37c37461aa28ba3ba03c"
+      }
+    },
+    {
+      "key": "T3",
+      "id": "c3411b5a-01ec-40b9-b924-c785ca875d68",
+      "value": {
+        "amount": 395,
+        "created_at": "2016-06-13 04:17:53.946",
+        "created_by": "manager",
+        "customers": 4,
+        "dishes": 1,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "301",
+            "name": "Arancini",
+            "org_id": "i:7f7a1b10-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3009",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 1,
+        "modify_at": "2016-06-13 04:17:53.946",
+        "modify_by": "manager",
+        "number": "10004",
+        "summary": "Arancini",
+        "table": "T3",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "c3411b5a-01ec-40b9-b924-c785ca875d68",
+        "_rev": "1-38aad9719491292b5db506211958c458"
+      }
+    },
+    {
+      "key": "Table 01",
+      "id": "69f0103d-a82e-49e4-ac86-5a75001c26cf",
+      "value": {
+        "amount": 3965,
+        "created_at": "2016-07-25 07:35:27.650",
+        "created_by": "manager",
+        "customers": 4,
+        "dishes": 3,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 2370,
+            "count": 6,
+            "id": "301",
+            "name": "Arancini",
+            "org_id": "i:7f7a1b10-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3009",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 600,
+            "count": 1,
+            "id": "103",
+            "name": "Chicken Caesar",
+            "org_id": "i:66c63640-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:2209",
+              "name": "Standard",
+              "price": 600
+            },
+            "summary": "Standard,GST",
+            "taxes": [
+              {
+                "id": "95a32288-b5f7-432f-9065-78c8c132cea1",
+                "include": true,
+                "name": "GST",
+                "percentage": true,
+                "value": 10
+              }
+            ],
+            "total_tax": 60,
+            "unit_price": 600,
+            "unit_tax": 60
+          },
+          {
+            "amount": 995,
+            "count": 1,
+            "id": "103",
+            "name": "Chicken Caesar",
+            "org_id": "i:66c63640-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:2216",
+              "name": "Large",
+              "price": 995
+            },
+            "summary": "Large,GST",
+            "taxes": [
+              {
+                "id": "95a32288-b5f7-432f-9065-78c8c132cea1",
+                "include": true,
+                "name": "GST",
+                "percentage": true,
+                "value": 10
+              }
+            ],
+            "total_tax": 99,
+            "unit_price": 995,
+            "unit_tax": 99
+          }
+        ],
+        "items_count": 8,
+        "modify_at": "2016-07-25 07:53:41.323",
+        "modify_by": "manager",
+        "number": "110009",
+        "summary": "Arancini,Chicken Caesar,Chicken Caesar",
+        "table": "Table 01",
+        "total_discount": 0,
+        "total_tax": 159,
+        "type": "order",
+        "_id": "69f0103d-a82e-49e4-ac86-5a75001c26cf",
+        "_rev": "3-560addb2e0188701353fe789b328e35f"
+      }
+    },
+    {
+      "key": "Table 02",
+      "id": "0f227707-c61e-460f-8449-0fffa67c92c7",
+      "value": {
+        "amount": 2365,
+        "created_at": "2016-07-27",
+        "created_by": "manager",
+        "customers": 4,
+        "dishes": 3,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 375,
+            "count": 1,
+            "id": "601",
+            "name": "Guinness",
+            "org_id": "1d803dac-3736-4049-acc6-ca79cc9ac3d4",
+            "price": {
+              "$$hashKey": "object:2762",
+              "name": "Half Pint",
+              "price": 375
+            },
+            "summary": "Half Pint",
+            "taxes": [],
+            "total_tax": 0,
+            "unit_price": 375,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1595,
+            "count": 1,
+            "id": "206",
+            "name": "Lamb shank tagine",
+            "org_id": "i:2b199c80-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:2830",
+              "name": "",
+              "price": 1595
+            },
+            "total_tax": 0,
+            "unit_price": 1595,
+            "unit_tax": 0
+          },
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "303",
+            "name": "Baked veggie samosas",
+            "org_id": "i:8c4148f0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3027",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 3,
+        "modify_at": "2016-07-27 07:43:19.260",
+        "modify_by": "manager",
+        "number": "110010",
+        "summary": "Guinness,Lamb shank tagine,Baked veggie samosas",
+        "table": "Table 02",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "0f227707-c61e-460f-8449-0fffa67c92c7",
+        "_rev": "9-1ffb7398ea8884bd03d2fc3df8c627d9"
+      }
+    },
+    {
+      "key": "Table 04",
+      "id": "9df62032-cd22-428f-a54e-0d6ce164226e",
+      "value": {
+        "amount": 2185,
+        "created_at": "2016-07-25 09:00:43.172",
+        "created_by": "manager",
+        "customers": 6,
+        "dishes": 3,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "301",
+            "name": "Arancini",
+            "org_id": "i:7f7a1b10-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3009",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 1395,
+            "count": 1,
+            "id": "201",
+            "name": "Asian fish stew",
+            "org_id": "i:f21f9510-0b64-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:2554",
+              "name": "",
+              "price": 1395
+            },
+            "total_tax": 0,
+            "unit_price": 1395,
+            "unit_tax": 0
+          },
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "303",
+            "name": "Baked veggie samosas",
+            "org_id": "i:8c4148f0-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3027",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 3,
+        "modify_at": "2016-07-28 02:31:44.409",
+        "modify_by": "manager",
+        "number": "110001",
+        "summary": "Arancini,Asian fish stew,Baked veggie samosas",
+        "table": "Table 04",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "9df62032-cd22-428f-a54e-0d6ce164226e",
+        "_rev": "4-ab7a5862d157db31b9f55e7c27f0c31c"
+      }
+    },
+    {
+      "key": "Take away",
+      "id": "72b94e22-a9bd-4b78-b1f9-ce111f9e0447",
+      "value": {
+        "amount": 395,
+        "created_at": "2016-06-03 04:36:38.660",
+        "created_by": "manager",
+        "customers": 4,
+        "dishes": 1,
+        "is_payment": false,
+        "items": [
+          {
+            "amount": 395,
+            "count": 1,
+            "id": "301",
+            "name": "Arancini",
+            "org_id": "i:7f7a1b10-0b65-11e6-b755-03fc205c5c46",
+            "price": {
+              "$$hashKey": "object:3009",
+              "name": "",
+              "price": 395
+            },
+            "total_tax": 0,
+            "unit_price": 395,
+            "unit_tax": 0
+          }
+        ],
+        "items_count": 1,
+        "modify_at": "2016-06-03 04:36:38.660",
+        "modify_by": "manager",
+        "number": "110002",
+        "summary": "Arancini",
+        "table": "Take away",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "72b94e22-a9bd-4b78-b1f9-ce111f9e0447",
+        "_rev": "1-40d51a5b6943feed6bb61cbc41139fe4"
+      }
+    },
+    {
+      "key": "register",
+      "id": "31d6fa6c-9e9a-4923-9da4-af60a4fcf90d",
+      "value": {
+        "amount": 0,
+        "created_at": "2016-06-03 07:07:59.496",
+        "created_by": "manager",
+        "customers": 4,
+        "discounts": [],
+        "dishes": 0,
+        "is_payment": false,
+        "items_count": 0,
+        "modify_at": "2016-06-03 07:08:04.713",
+        "modify_by": "manager",
+        "note": null,
+        "number": "110021",
+        "summary": "",
+        "table": "register",
+        "total_discount": 0,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "31d6fa6c-9e9a-4923-9da4-af60a4fcf90d",
+        "_rev": "2-1dae75933f1ca12b89f0f33cf02a77f7"
+      }
+    },
+    {
+      "key": "register",
+      "id": "87d4baea-2855-4391-b218-860bfc4ecc96",
+      "value": {
+        "amount": -10,
+        "created_at": "2016-04-27 08:20:10.985",
+        "created_by": "manager",
+        "customers": 4,
+        "discounts": [
+          {
+            "id": "f1b3bcd6-353b-4b4a-968e-0840e2c7af85",
+            "name": "VIP",
+            "percentage": false,
+            "value": 10
+          },
+          {
+            "id": "7cefcd2e-5931-4488-b71a-c93ce0c12c55",
+            "name": "Member",
+            "percentage": true,
+            "value": 5
+          }
+        ],
+        "dishes": 0,
+        "is_payment": false,
+        "items_count": 0,
+        "modify_at": "2016-04-27 08:20:10.985",
+        "modify_by": "manager",
+        "note": null,
+        "number": "10017",
+        "summary": "",
+        "table": "register",
+        "total_discount": 10,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "87d4baea-2855-4391-b218-860bfc4ecc96",
+        "_rev": "1-04f92c9c03667e1d2decdd6c65f13c80"
+      }
+    },
+    {
+      "key": "register",
+      "id": "fbc8ceae-7b73-41ed-a7ab-b5b00be8c195",
+      "value": {
+        "amount": -10,
+        "created_at": "2016-04-27 08:20:50.373",
+        "created_by": "manager",
+        "customers": 4,
+        "discounts": [
+          {
+            "id": "f1b3bcd6-353b-4b4a-968e-0840e2c7af85",
+            "name": "VIP",
+            "percentage": false,
+            "value": 10
+          }
+        ],
+        "dishes": 0,
+        "is_payment": false,
+        "items_count": 0,
+        "modify_at": "2016-04-27 08:20:50.373",
+        "modify_by": "manager",
+        "note": "",
+        "number": "10019",
+        "summary": "",
+        "table": "register",
+        "total_discount": 10,
+        "total_tax": 0,
+        "type": "order",
+        "_id": "fbc8ceae-7b73-41ed-a7ab-b5b00be8c195",
+        "_rev": "1-4fa9b54c8c02c52cca09ce60b8f58805"
+      }
+    }
+  ]
+}

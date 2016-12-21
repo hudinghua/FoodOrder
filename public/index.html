@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>BBPOS - F&amp;B Web POS</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600" rel="stylesheet">
+	<link rel="stylesheet" href="./libs/assets/animate.css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="./libs/assets/font-awesome/css/font-awesome.css" type="text/css" />
+	<link rel="stylesheet" href="./libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="./css/app.css" type="text/css" />
+	<link rel="stylesheet" href="./css/fb.min.css" type="text/css" />
+</head>
+
+<body data-ng-app="fbApp">
+	<div data-ui-view class="appwrap"></div>
+	<!-- template -->
+	<!-- s-Successfully Tip -->
+	<script type="text/ng-template" id="tpl/modelSuccessful.html">
+		<div class="modal-header charge-modal-header">
+			<h3 class="modal-title">{{title}}</h3>
+		</div>
+		<div class="modal-body center">
+			<div class="charge-modal-success">
+				<svg class="circleSuccess path" width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+						<g stroke-width="3" stroke="#4CAF50">
+							<polyline id="Path-2" points="17 34 28 45 50 21"></polyline>
+						</g>
+					</g>
+				</svg>
+			</div>
+			<h4 class="modal-subtitle">{{content}}</h4>
+		</div>
+		<!-- <div class="charge-modal-footer">
+        </div> -->
+	</script>
+	<!-- e-Successfully  Tip -->
+	<!-- s-Error Tip -->
+	<script type="text/ng-template" id="tpl/modelFailed.html">
+		<div class="modal-header charge-modal-header">
+			<h3 class="modal-title">{{title}}</h3>
+		</div>
+		<div class="modal-body center">
+			<div class="charge-modal-error">
+				<svg class="circleDecline path" width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+				        <g stroke="#E53935" stroke-width="3">
+				            <path d="M20,20 L46,46" id="Path-3-Copy"></path>
+				            <path d="M46,20 L20,46" id="Path-3-Copy-2"></path>
+				        </g>
+				    </g>
+				</svg>
+			</div>
+			<h4 class="modal-subtitle">{{content}}</h4>
+		</div>
+	</script>
+	<!-- e-Error Tip -->
+	<!-- s-Save Tip -->
+	<script type="text/ng-template" id="tpl/modelSuccessMsg.html">
+		<div class="modal-header">
+			<h4 class="modal-title">Info</h4>
+		</div>
+		<div class="modal-body center">
+			<i class="glyphicon glyphicon-ok-sign tip-model-icon" style="color:#4CAF50;"></i> <span class="tip-model-msg" style="color:#4CAF50;">Save successfully!</span>
+		</div>
+	</script>
+	<!-- e-Save Tip -->
+
+	<!-- s-Successfully Charge Tip -->
+	<script type="text/ng-template" id="tpl/modelChargeMsg.html">
+		<div class="modal-header charge-modal-header">
+			<h3 class="modal-title">{{orderNumber}}</h3>
+		</div>
+		<div class="modal-body center">
+			<div class="charge-modal-success">
+				<svg class="circleSuccess path" width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+						<g stroke-width="3" stroke="#4CAF50">
+							<polyline id="Path-2" points="17 34 28 45 50 21"></polyline>
+						</g>
+					</g>
+				</svg>
+			</div>
+			<h4 class="modal-subtitle">Payment Successful</h4>
+		</div>
+		<div class="modal-buttonBar clearfix">
+			<button type="button" ng-click="back()" class="btn-square ghost flat grey">BACK</button>
+			<button type="button" ng-click="viewReceipt()" class="btn-square ghost flat grey">VIEW RECEIPT</button>
+		</div>
+	</script>
+	<!-- e-Successfully Charge Tip -->
+
+	<!-- s-Error Charge Tip -->
+	<script type="text/ng-template" id="tpl/modelFailMsg.html">
+		<div class="modal-header charge-modal-header">
+			<h3 class="modal-title">{{orderNumber}}</h3>
+		</div>
+		<div class="modal-body center">
+			<div class="charge-modal-error">
+				<svg class="circleDecline path" width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+								<g stroke="#E53935" stroke-width="3">
+										<path d="M20,20 L46,46" id="Path-3-Copy"></path>
+										<path d="M46,20 L20,46" id="Path-3-Copy-2"></path>
+								</g>
+						</g>
+				</svg>
+			</div>
+			<h4 class="modal-subtitle">Payment Failure</h4>
+		</div>
+	</script>
+	<!-- e-Error Charge Tip -->
+
+	<!-- s-Charge loading Tip -->
+	<script type="text/ng-template" id="tpl/modelChargeloading.html">
+		<div class="modal-header charge-modal-header">
+			<h3 class="modal-title">{{orderNumber}}</h3>
+		</div>
+		<div class="modal-body center">
+			<div class="charge-modal-loading"></div>
+			<h4 class="modal-subtitle">Processing</h4>
+		</div>
+		<!-- <div class="charge-modal-footer">
+             <button type="button" ng-click="cancel()" class="btn btn-default">CANCEL</button>
+        </div> -->
+	</script>
+	<!-- e-Charge loading Tip -->
+
+	<!-- s-Info Tip -->
+	<script type="text/ng-template" id="tpl/modelIpMsg.html">
+		<div class="modal-header charge-modal-header">
+			<h3 class="modal-title">{{orderNumber}}</h3>
+		</div>
+		<div class="modal-body center">
+			<div class="charge-modal-warning">
+				<svg class="circleWarning path" width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+				        <g stroke="#FFC107" stroke-width="3">
+				            <path d="M33.5,19 L33.5,39" id="Path-4"></path>
+				            <path d="M33.5,46 L33.5,48" id="Path-4-Copy"></path>
+				        </g>
+				    </g>
+				</svg>
+			</div>
+			<h4 class="modal-subtitle">Please enter the device IP in "Settings"</div>
+		</div>
+		<div class="modal-buttonBar clearfix">
+			<button ng-click="jumpSet()" type="button" class="btn-square ghost flat grey">GO TO SETTINGS</button>
+		</div>
+	</script>
+	<!-- e-Info Tip -->
+
+	<!-- s-Is save -->
+	<script type="text/ng-template" id="tpl/modelIsSaveOrder.html">
+		<div class="modal-header">
+			<h4 class="modal-subtitle">{{title}}</h4>
+		</div>
+		<div class="modal-buttonBar clearfix">
+			<!-- <div style="display:inline-block;height:34px;"></div> -->
+			<button ng-click="discard()" type="button" class="btn-square ghost flat left">DISCARD</button>
+			<button ng-click="save()" type="button" class="btn-square ghost flat right">SAVE</button>
+			<button ng-click="cancel()" type="button" class="btn-square ghost flat right" style="margin-right: 8px;">CANCEL</button>
+		</div>
+	</script>
+	<!-- e-Is save -->
+
+	<!-- s-Is save -->
+	<script type="text/ng-template" id="tpl/modelWhether.html">
+		<div class="modal-header">
+			<h4 class="modal-subtitle">{{title}}</h4>
+		</div>
+		<div class="modal-buttonBar clearfix">
+			<!-- <div style="display:inline-block;height:34px;"></div> -->
+			<button ng-click="discard()" type="button" class="btn-square ghost flat left">TO SET</button>
+			<button ng-click="cancel()" type="button" class="btn-square ghost flat right">CANCEL</button>
+		</div>
+	</script>
+	<!-- e-Is save -->
+
+
+	<!-- s-Successfully Charge Tip -->
+	<script type="text/ng-template" id="tpl/modalReceipt.html">
+		<!--startprint-->
+		<div class="modal-header charge-modal-header text-center" ng-style="receipt.headerCss">
+			<h3 class="modal-title">{{receipt.title}}</h3>
+			<div ng-if="receipt.showBack" class="btn back" ng-click="back()">
+				<i class="icon-ic-arrow-back-black receipt-btn"></i>
+			</div>
+		</div>
+		<div class="modal-body modal-receipt">
+			<div class="clearfix">
+				<div ng-if="receipt.showLogo" class="logo">
+					<!-- ng-class="'glyphicon glyphicon-cutlery':(receipt.imgCss != '')" -->
+					<div class="logoimg" ng-style="receipt.imgCss"></div>
+				</div>
+				<div ng-if="receipt.showInfo" class="describe">
+					<div class="des text-ellipsis"><i class="icon icon-ic-phone-black"></i>{{receipt.customerMsg.tel}}</div>
+					<div class="des text-ellipsis"><i class="icon icon-ic-home-black"></i>{{receipt.customerMsg.site}}</div>
+					<div class="des text-ellipsis"><i class="icon icon-ic-facebook-black"></i>{{receipt.customerMsg.addr}}</div>
+				</div>
+			</div>
+			<div class="dishlist clearfix">
+
+				<!-- <div ng-repeat="dish in receipt.dishs" ng-class="{breakpage:$index==2}">
+                    <div class="dishname text-ellipsis">
+                        <span>{{dish.count}}X</span>
+                        <div class="name">{{dish.name}}</div>
+                    </div>
+                    <div class="price">
+                        {{dish.amount/100 | currency}}
+                    </div>
+                </div> -->
+
+				<ul>
+					<li ng-repeat="dish in receipt.dishs">
+						<!-- ng-class="{breakpage:$index==2}" -->
+						<div class="dishname">
+							<div class="dishQty">{{dish.count}}X</div>
+							<div class="name">{{dish.name}}</div>
+						</div>
+						<div class="price">
+							{{dish.amount/100 | currency}}
+						</div>
+
+					</li>
+				</ul>
+				<div class="total clearfix">
+					<div class="totalLabel">Total</div>
+					<div class="totalmsg text-right">
+						<span>{{receipt.amount/100 | currency}}</span><br/>
+						<span>{{receipt.time | date:'d MMM (EEE), H:mm'}}</span><br/>
+						<span>#{{receipt.number}}</span>
+					</div>
+				</div>
+				<div class="text-center" style="color:#0000008a;">
+					<p>{{receipt.mark}}</p>
+				</div>
+			</div>
+		</div>
+		<!--endprint-->
+		<div class="charge-modal-btns text-center">
+			<div class="btn receiptPrint" ng-click="print()">
+				<i class="icon-ic-print-black icon receipt-btn"></i>
+				<div>Print</div>
+			</div>
+			<div class="btn receiptEmail" ng-click="sendEmail()">
+				<i class="icon-ic-email-black icon receipt-btn"></i>
+				<div>Email</div>
+			</div>
+		</div>
+	</script>
+	<!-- e-Successfully Charge Tip -->
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="./libs/jquery/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="./libs/jquery/jquery/dist/jqPlugin.js"></script>
+	<!-- <script type="text/javascript" src = "./libs/jquery/drag/drag.js"></script> -->
+	<!-- bootstrap -->
+	<script type="text/javascript" src="./libs/jquery/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- angular -->
+	<script type="text/javascript" src="./libs/angular/angular/angular.js"></script>
+	<script type="text/javascript" src="./libs/angular/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="./libs/angular/angular-ui-utils/ui-utils.js"></script>
+	<!-- <script type="text/javascript" src = "./libs/angular/angular-drag/angular-drag.js"></script> -->
+	<!-- angular-bootstrap -->
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script> -->
+	<script type="text/javascript" src="./libs/angular/angular-animate/angular-animate.js"></script>
+	<script type="text/javascript" src="./libs/angular/angular-sanitize/angular-sanitize.js"></script>
+	<script type="text/javascript" src="./libs/angular/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<!-- <script src="//cdn.bootcss.com/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.min.js"></script> -->
+	<script type="text/javascript" src="./libs/angular/angular-touch/angular-touch.js"></script>
+	<!-- lazyload -->
+	<script src="../libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+	<!-- pouchdb -->
+	<script src="../libs/pouchDB/pouchdb-5.4.5.js"></script>
+	<!-- socket.io -->
+	<script src="../libs/socket.io/socket.io.js"></script>
+	<!-- app -->
+	<script type="text/javascript" src="./js/app.js"></script>
+	<script type="text/javascript" src="./js/config.constant.js"></script>
+	<script type="text/javascript" src="./js/config.router.js"></script>
+</body>
+
+</html>

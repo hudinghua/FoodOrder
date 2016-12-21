@@ -1,0 +1,104 @@
+.btn-square {
+    display: inline-block;
+    position: relative;
+    min-height: 36px;
+    min-width: 64px;
+    vertical-align: middle;
+    align-items: center;
+    text-align: center;
+
+    padding: 0 8px;
+    margin: 0 8px;
+    border-radius: 3px;
+    border: 0;
+
+    color: white;
+    background: transparent;
+    background-color: #4CAF50;
+
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 36px;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+
+    &:active {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,.4);
+    }
+}
+
+.white {
+    background-color: #fff;
+    color: #4CAF50;
+
+    &:hover {
+        background-color: #F5F5F5;
+    }
+}
+
+.green {
+    background-color:: #4CAF50;
+    color: #fff;
+
+    &:hover {
+        background-color: #43A047;
+    }
+}
+
+.yellow {
+    background-color:: #FFB300;
+    color: #fff;
+
+    &:hover {
+        background-color: #FFA000;
+    }
+}
+
+.red {
+    background-color:: #fff;
+    color: #E53935;
+
+    &:hover {
+        background-color: #F5F5F5;
+    }
+}
+
+.ghost {
+    background: none;
+    color: #4CAF50;
+
+    &:hover {
+        background-color: #f0f0f0;
+        color: #388E3C;
+    }
+}
+
+.grey {
+    color: rgba(0,0,0,.54);
+
+    &:hover {
+        color: rgba(0,0,0,.67);
+    }
+}
+
+.flat {
+    box-shadow: none;
+
+    &:hover {
+        box-shadow: none;
+    }
+}
+
+.btn-square[disabled] {
+    background-color: rgba(0,0,0,.12);
+    color: rgba(0,0,0,0.38);
+    box-shadow: none;
+}

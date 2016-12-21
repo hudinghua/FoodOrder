@@ -1,0 +1,97 @@
+.receipt-wrap {
+    height: calc(100% - 40px);
+    position: relative;
+    .fontgray {
+      color: rgba(0,0,0,0.38);
+    }
+    .font-default-size{
+       font-size: 16px;
+     }
+    .font-size{
+      font-size: 14px;
+    }
+    .baseColor {
+      height:36px;
+      color: #FFFFFF;
+    }
+    .red {
+      @extend .baseColor;
+      background-color: #f44336;
+    }
+    .purple{
+      @extend .baseColor;
+      background-color: #9c27b0;
+    }
+    .blue{
+      @extend .baseColor;
+      background-color: #2196f3;
+    }
+    .indigo{
+      @extend .baseColor;
+      background-color: #3f51b5;
+    }
+    .cyan{
+      @extend .baseColor;
+      background-color: #00bcd4;
+    }
+    .teal{
+      @extend .baseColor;
+      background-color: #009688;
+    }
+    .amber{
+      @extend .baseColor;
+      background-color: #ffc107;
+    }
+    .orange{
+      @extend .baseColor;
+      background-color: #ff9800;
+    }
+    .headerText{
+      color:#4CAF50;
+      font-size: 12px;
+    }
+    .noBordertextarea{
+      border-width: 0 0 2px;
+      padding-bottom: 0;
+      border-color: #4CAF50;
+      background: none;
+      padding: 2px 2px 1px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 26px;
+    }
+    .noBorderInput{
+      @extend .noBordertextarea;
+      height: 30px;
+    }
+    .item-example{
+      height:48px;
+      box-shadow: inset 0px -1px 0px 0px #E0E0E0;
+    }
+    .receipt-title{
+      background-color:#009688;
+      line-height: 43px;
+      min-height: 64px;
+      color: #FFFFFF;
+      font-size: 20px;
+      border-radius: 3px 3px 0px 0px;
+    }
+    .receipt-welcome{
+      line-height: 24px;
+    }
+    .restaurant-wrap{
+      background: #FFFFFF;
+      box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.12), 0px 2px 3px 0px rgba(0,0,0,0.24);
+      border-radius: 3px;
+    }
+    .receipt-buttons{
+        background-color: #F7F9F9;
+        bottom: 0px;
+        left:0px;
+        height: 50px;
+        line-height:50px;
+        width: 100%;
+        z-index: 100;
+    }
+
+};

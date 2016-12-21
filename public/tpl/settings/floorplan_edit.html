@@ -1,0 +1,97 @@
+<div class="edit-menu">
+	<div class="header">
+		<strong>{{title}}</strong>
+		<div ng-if="title !== 'New table'" class="icon icon-ic-delete-black menu-remove" ng-click="delete()"></div>
+		<div class="icon icon-ic-rotate-black  menu-rotate" ng-click="rotate()"></div>
+		<div class="icon icon-ic-done-black menu-save" ng-click="save()"></div>
+	</div>
+	<div fby-scroll class="content">
+		<div class="menu-item" style="padding-bottom: 20px;">
+
+			<form class="form-horizontal" style="height: 240px;">
+				<div class="form-group" style="margin-top: 10px;">
+					<!-- Table number -->
+					<div class="col-sm-6">
+						<div style="position: relative;">
+							<i for="fp-table" class="glyphicon icon-ic-table-number-black input-ico"></i>
+							<input id="fp-table" ng-model="desk.byname" class="form-control input-position" type="text" size="18" alt="Table number" required="" popover-placement="bottom-left" uib-popover="{{popoverTn.tpl}}"  popover-is-open="popoverTn.isOpen" popover-trigger="none" popover-enable="popoverTn.isOpen" popover-class="valid-plan">
+						  	<label for="fp-table" class="float-label input-position">Table number</label>
+					  	</div>
+					</div>
+					<!-- Server -->
+					<div class="col-sm-6">
+						<div style="position: relative;">
+							<i for="fb-server" class="glyphicon icon-ic-server-black input-ico"></i>
+							<label for="fb-server" class="float-label input-position" ng-class="{'float-label-select':isServer}">Server</label>
+							<select id="fb-server" ng-model="server.selected" ng-change="serverChange(server.selected)" ng-options="o as o for o in server.options" class="form-control input-position input-select">
+							</select>
+							<span class="icon-ic-arrow-drop-down-black icon-down"></span>
+					  	</div>
+					</div>
+				</div>
+				<!-- Table type -->
+				<div class="form-group" style="margin-top: 30px;">
+					<div class="col-sm-12">
+						<div style="position: relative;">
+							<i for="fb-seat" class="glyphicon icon-ic-table-type-black input-ico"></i>
+							<label for="fb-seat" class="float-label input-position" ng-class="{'float-label-select':isSeat}">Table type</label>
+							<select id="fb-seat" ng-model="seat.selected" ng-change="seatChange(seat.selected)" ng-options="o as o + ' Seats' for o in seat.options" class="form-control input-position input-select">
+							</select>
+							<span class="icon-ic-arrow-drop-down-black icon-down"></span>
+					  	</div>
+					</div>
+				</div>
+				<!-- Table type templates -->
+				<div class="form-group" style="margin-top: 40px;">
+					<div class="col-sm-12">
+						<div style="position: relative;" popover-placement="bottom-left" uib-popover="{{popoverDk.tpl}}"  popover-is-open="popoverDk.isOpen" popover-trigger="none" popover-enable="popoverDk.isOpen" popover-class="valid-template">
+							<div id="desk-templates-id" fbx-Scroll class="tpl-wrap">
+								<ul>
+									<li ng-repeat="dt in deskTpl">
+										<div class="desk-model handle-select margin" ng-class="{'drag':dt.tplId == currentDeskTpl.tplId}" ng-click="selectDeskTpl(dt)" style="zoom: .8;">
+											<div class="desk-option dg" ng-repeat="ct in dt.chairTpl" ng-style="{float:dt.chairTpl.length > 1 ? 'left':'none'}">
+												<span class="chair-top dg" ng-if="true == ct.ctop"></span>
+												<span class="chair-right dg" ng-if="true == ct.cright"></span>
+												<span class="chair-bottom dg" ng-if="true == ct.cbottom"></span>
+												<span class="chair-left dg" ng-if="true == ct.cleft"></span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div ng-if="isTplLoading" class="tpl-loading">
+								<div class="charge-modal-loading" style="margin-top: 28px;border-top-color: #37474f;"></div>
+							</div>
+						</div>
+
+						<!-- <div id="desk-templates-id"  fbx-Scroll style="position: relative;">
+							<div class="desk-tpl">
+								<div class="desk-model handle-select margin" ng-class="{'drag':dt.tplId == tplId}" ng-repeat="dt in deskTpl" ng-click="selectDeskTpl(dt)">
+									<div class="desk-option dg" ng-repeat="ct in dt.chairTpl" ng-style="{float:dt.chairTpl.length > 1 ? 'left':'none'}">
+										<span class="chair-top dg" ng-if="true == ct.ctop"></span>
+										<span class="chair-right dg" ng-if="true == ct.cright"></span>
+										<span class="chair-bottom dg" ng-if="true == ct.cbottom"></span>
+										<span class="chair-left dg" ng-if="true == ct.cleft"></span>
+									</div>
+								</div>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</form>
+			<div class="desk-selected-wrap">
+				<div class="desk-selected clearfix zoom drag" ng-style="optionDeskTpl.style.selectedCss">
+					<div class="desk-option dg" ng-repeat="ct in optionDeskTpl.chairTpl" ng-style="optionDeskTpl.style.floatCss">
+						<span class="chair-top dg" ng-if="true == ct.ctop"></span>
+						<span class="chair-right dg" ng-if="true == ct.cright"></span>
+						<span class="chair-bottom dg" ng-if="true == ct.cbottom"></span>
+						<span class="chair-left dg" ng-if="true == ct.cleft"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-click="hidePlanEdit()" class="slide-right  icon-arrow-right">
+		<i class="glyphicon glyphicon-step-forward"></i>
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<div class="ng-cloak floorwrap">
+    <div ng-touchstart="touchZoneFold($event)" ng-click="touchZoneFold($event)" class="navwrap" ng-class="{'setting-theme':setingTheme}">
+        <div class="navleft">
+            <span ng-click="slideMenu()" class="icon icon-ic-menu-black"></span>
+            <div class="navlogo"></div>
+        </div>
+        <div ng-if="isShowList">
+            <div ng-if="!isList" ng-click="touchToggleList()" class="navright">
+                <h1 class="titletext">List View</h1>
+                <i class="icon icon-ic-list-view-black"></i>
+            </div>
+            <div ng-if="isList" ng-click="touchToggleList()" class="navright">
+                <h1 class="titletext">Floorplan View</h1>
+                <i class="icon icon-ic-floorplan-view-black"></i>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid historywrap" data-ui-view="history"></div>
+    <div ng-click="touchZoneFold($event)" data-ui-view="settings" ng-show="isSelf" class="container-fluid floorplan">
+        <div id="tb-container" ng-show="!isList" fb-Scroll class="tablelayout">
+            <div ng-if="isLoading" class="bbpos-loading">
+                <div class="loader">Loading...</div>
+            </div>
+            <div ng-touchstart="touchZoneFold($event)" class="tablewrap" style="width:{{tableCfg.width}}px;height:{{tableCfg.height}}px;">
+                <div ng-repeat="dt in desktops" ng-click="tableSelect(dt)" class="model-panel" ng-style="dt.style">
+                    <div class="desk-option" ng-repeat="ct in dt.chairTpl" ng-style="{float:(dt.rotate/90)%2 == 0 ? 'left':'none'}">
+                        <span class="chair-top dg" ng-style="{'background-color':dt.style['background-color']}" ng-if="true == ct.ctop"></span>
+                        <span class="chair-right dg" ng-style="{'background-color':dt.style['background-color']}" ng-if="true == ct.cright"></span>
+                        <span class="chair-bottom dg" ng-style="{'background-color':dt.style['background-color']}" ng-if="true == ct.cbottom"></span>
+                        <span class="chair-left dg" ng-style="{'background-color':dt.style['background-color']}" ng-if="true == ct.cleft"></span>
+                    </div>
+                    <div class="desk-msg">
+                        <div class="title">{{dt.name}}</div>
+                        <div class="seat"><i class="icon-ic-people-black icon"></i>{{dt.customers}}/{{dt.guests}}</div>
+                        <div class="number"><i class="icon-ic-receipt-black icon"></i>#{{dt.number}}</div>
+                    </div>
+                    <div class="dtcover"></div>
+                    <!-- <div table-Panel></div>
+                    <div class="dtcover"></div> -->
+                </div>
+            </div>
+            <div class="add" ng-click="tableSelect('')">
+                <i class="icon icon-ic-content-add-black iconstyle"></i>
+                <div class="addcover"></div>
+            </div>
+            <!-- ui-sref="app.addorder" -->
+        </div>
+        <div ng-show="isList" fb-Scroll class="tablelayout">
+            <div ng-touchstart="touchZoneFold($event)" drag-Move class="tablewrap">
+                <div ng-repeat="dt in orderData | filter:dt.number == '' | orderBy:'tableNo'" ng-click="tableSelect(dt)" class="deskrow">
+                    <div class="tbleftwrap">
+                        <div class="tbname" ng-style="dt.style | tableStyle">{{dt.tableNo}}</div>
+                        <div class="tbnote">
+                            <div class="number orderNum">#{{dt.number}}</div>
+                            <div class="note desc">{{dt.order.mposfb.summary | tableMark}}</div>
+                        </div>
+                    </div>
+                    <div class="tbprice">
+                        <div class="number price">{{dt.order.mposfb.amount/100 | currency}}</div>
+                        <div class="note desc">{{dt.order.mposfb.created_at | timeAmPm | date:'shortTime'}}</div>
+                    </div>
+                    <div class="dtcover"></div>
+                </div>
+            </div>
+            <div class="add" ng-click="tableSelect('')">
+                <i class="icon icon-ic-content-add-black iconstyle"></i>
+                <div class="addcover"></div>
+            </div>
+        </div>
+    </div>
+    <div bbpos-Menu class="menuwrap" ng-class="{'menu-show':isMeunShow,'slideInLeft animated':isMeunShow}"></div>
+    <div bbpos-Addorder class="addorderwrap" ng-class="{'addorder-show':isOrderShow,'slideInRight animated':isOrderShow}"></div>
+    <div toaster is-Slide="isSlide"></div>
+</div>

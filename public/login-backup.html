@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>BBPOS - F&B Web POS</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./libs/jquery/bootstrap/dist/css/bootstrap.min.css">
+    <style type="text/css">
+    	html {
+    		height: 100%;
+    	}
+    	body {
+		    background-color: #eee;
+		    height: 100%;
+		}
+
+		.signin-bg {
+			background-image: url('./img/login_bg.png');
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+		    height: 90%;
+		    position: relative;
+		}
+
+		.form-signin {
+		    padding: 15px;
+		    width: 65%;
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    -webkit-transform: translate(-50%,-50%);
+		       -moz-transform: translate(-50%,-50%);
+		            transform: translate(-50%,-50%);
+		}
+		.form-signin .form-signin-heading {
+			margin-bottom: 10px;
+		    background-image: url('./img/logo.png');
+		    background-size: contain;
+			background-repeat: no-repeat;
+		    width: 200px;
+		    margin: 0 auto;
+		    height: 100px;
+		}
+		.form-signin .checkbox {
+		    margin-bottom: 10px;
+		}
+		.form-signin .checkbox {
+		    font-weight: normal;
+		}
+		.form-signin .form-control {
+		    position: relative;
+		    height: auto;
+		    -webkit-box-sizing: border-box;
+		       -moz-box-sizing: border-box;
+		            box-sizing: border-box;
+		    padding: 5px;
+		    font-size: 16px;
+		    border-radius: 0px;
+		}
+		.form-signin .form-control:focus {
+		    z-index: 2;
+		    border-bottom: 1px solid #4CAF50;
+		    -webkit-box-shadow: none;
+		       -moz-box-shadow: none;
+		            box-shadow: none;
+		}
+		.form-signin input[type="email"] {
+			outline:none;
+		    /* margin-bottom: 25px; */
+		    border: 0px;
+		    border-bottom: 1px solid #b3b5b4;
+		    background: transparent;
+		}
+
+		.form-signin input[type="password"] {
+			outline:none;
+		    /* margin-bottom: 30px; */
+		    border: 0px;
+		    border-bottom: 1px solid #b3b5b4;
+		    background: transparent;
+		}
+
+		.form-signin input[type="url"] {
+			outline:none;
+		    /* margin-bottom: 25px; */
+		    border: 0px;
+		    border-bottom: 1px solid #b3b5b4;
+		    background: transparent;
+		}
+
+		.form-signin input[type="text"] {
+			outline:none;
+		    margin-bottom: 10px;
+		    border: 0px;
+		    border-bottom: 1px solid #b3b5b4;
+		    background: transparent;
+		}
+
+		.form-signin .label-first {
+			color:#b3b5b4;
+			margin-top:25px;
+		}
+		.form-signin .label-style {
+			color:#4CAF50;
+		}
+		.form-signin .label-length {
+			color:#000;
+			font-size: 16px;
+			display: block;
+		}
+		.form-signin .btn-bg {
+			background-color: #4CAF50;
+		}
+		.form-signin .btn-bg:hover {
+			background-color: #43A047;
+		}
+
+		.footer {
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 45px;
+			text-align: center;
+		}
+		.footer span {
+			color: #b3b5b4;
+			letter-spacing:2px;
+		}
+		.invalid {
+			padding: 5px;
+		    font-size: 16px;
+		    color: Red;
+		    opacity: .8;
+		    display: none;
+		}
+    </style>
+    <script type="text/javascript">
+    	(function () {
+		  	'use strict';
+		  	function emulatedIEMajorVersion() {
+			    var groups = /MSIE ([0-9.]+)/.exec(window.navigator.userAgent)
+			    if (groups === null) {
+			      return null
+			    }
+			    var ieVersionNum = parseInt(groups[1], 10)
+			    var ieMajorVersion = Math.floor(ieVersionNum)
+			    return ieMajorVersion;
+			}
+
+		  	function actualNonEmulatedIEMajorVersion() {
+			    var jscriptVersion = new Function('/*@cc_on return @_jscript_version; @*/')()
+			    if (jscriptVersion === undefined) {
+			      return 11;
+			    }
+			    if (jscriptVersion < 9) {
+			      return 8;
+			    }
+			    return jscriptVersion;
+			}
+
+		    var ua = window.navigator.userAgent
+		    if (ua.indexOf('Opera') > -1 || ua.indexOf('Presto') > -1) {
+		    	return;
+		    }
+		    var emulated = emulatedIEMajorVersion()
+		    if (emulated === null) {
+		    	return;
+		    }
+		    var nonEmulated = actualNonEmulatedIEMajorVersion()
+		    if (emulated !== nonEmulated) {
+		    	window.alert('WARNING: You appear to be using IE' + nonEmulated + ' in IE' + emulated + ' emulation mode.\nIE emulation modes can behave significantly differently from ACTUAL older versions of IE.\nPLEASE DON\'T FILE BOOTSTRAP BUGS based on testing in IE emulation modes!')
+		    }
+		})();
+    </script>
+</head>
+<body>
+	<div class="container signin-bg">
+		<form class="form-signin">
+	        <!-- <h2 class="form-signin-heading">Please sign in</h2> -->
+	        <div class="form-signin-heading"></div>
+	        <label role="label" for="inputEmail" class="label-style">LOGIN</label>
+	        <input role="text" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+	        <div class="invalid">The input box cannot be empty.</div>
+	        <label role="label" for="inputPassword" class="label-first">PASSWORD</label>
+	        <input role="text" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+	        <div class="invalid">The input box cannot be empty.</div>
+
+			<label style="display:none;" role="label" class="label-length"> - BBPOS</label>
+			<label style="display:none;" role="label" for="inputAddress" class="label-first" style="margin-top: 0px;">IP</label>
+	        <input style="display:none;" role="text" type="url" id="inputAddress" class="form-control" placeholder="Ip address" required="">
+	        <div style="display:none;" class="invalid">The input box cannot be empty.</div>
+	        <div style="display:none;" class="checkbox">
+		        <label>
+		            <input id="checkrRemember" type="checkbox" value="remember-me" checked="checked"> Remember me
+		        </label>
+	        </div>
+	        <a style="margin-top: 30px;" id="loginSubmit" href="javascript:;" class="btn btn-lg btn-primary btn-block btn-bg">Login</a>
+	        
+      	</form>
+	</div>
+	<div class="footer">
+  		<span>© 2016 BBPOS All rights reserved</span>
+  	</div>
+	<script type="text/javascript" src = "./libs/jquery/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src = "./libs/jquery/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+		  	'use strict';
+		  	if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			    var msViewportStyle = document.createElement('style');
+			    msViewportStyle.appendChild(document.createTextNode('@-ms-viewport{width:auto!important}'));
+			    document.querySelector('head').appendChild(msViewportStyle);
+			}
+		})();
+		$(document).ready(function() {
+			var checks = $('[role="text"]'),
+				labels = $('[role="label"]');
+			checks.on('focus',function(evt){
+				var curLabel = $(evt.target.previousElementSibling);
+				labels.removeClass('label-style');
+				labels.not(curLabel).addClass('label-first');
+				curLabel.addClass('label-style');
+			});
+
+			var btnLogin = $('#loginSubmit');
+			$("body").keydown(function() {
+			    if (event.keyCode === 13) {
+			        login();
+			    }
+			});
+			btnLogin.on('click',login);
+			btnLogin = null;
+			function login(){
+				var userName = $("#inputEmail").val(),
+					pwd = $("#inputPassword").val();
+				var isValid = true;
+				if (userName.trim() === '') {
+					$("#inputEmail").next().show();
+					isValid = false;
+				}else{
+					$("#inputEmail").next().hide();
+				}
+				if (pwd.trim() === '') {
+					$("#inputPassword").next().show();
+					isValid = false;
+				}else{
+					$("#inputPassword").next().hide();
+				}
+				if (!isValid) {
+					return false;
+				}
+				$.post("/login",{userName : userName,password : pwd},function(data,res){
+					if(data.success){
+						var storage = window.localStorage;
+						if ($("#checkrRemember").is(':checked')) {
+							storage.setItem("username",userName);
+							storage.setItem("password",pwd);
+						}else{
+							storage.setItem("username",'');
+							storage.setItem("password",'');
+						}
+						window.location.href = location.protocol +'//'+ location.host +'/#/app';
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>

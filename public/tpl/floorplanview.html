@@ -1,0 +1,28 @@
+<div class="container-fluid floorplan">
+    <toaster-container toaster-options="{'animation-class': 'toast-top-center', 'close-button':true,'limit':1,'newest-on-top':true}"></toaster-container>
+        <div fb-Scroll class="tablelayout">
+                <div ng-touchstart="touchStartScroll()" class="tablewrap" style="width:{{tableCfg.width}}px;height:{{tableCfg.height}}px;">
+
+                    <!-- <div  class="desktop" style="width:135px;height:135px;top:20px;left:20px;background-color:#FFB300;">
+                        <section class="tbwrap">
+                            <span class="title">M8</span>
+                            <div>
+                                <i class="icon-ic-people-black iconstyle"></i>
+                                <span class="people">4/4</span>
+                            </div>
+                            <div>
+                                <i class="icon-ic-receipt-black iconstyle"></i>
+                                <span class="people">#148215</span>
+                            </div>
+                        </section>
+                    </div> -->
+                    <div ng-repeat="dt in desktops" ng-click="tableSelect($event)" class="model-panel" ng-style="dt.style">
+                        <div class="desk-option">
+                            <div class="model-cover"></div>
+                        </div>
+                        <!-- <div table-Panel></div> -->
+                    </div>
+                </div>
+                <div class="add" ui-sref="app.addorder" ng-click="addOrder()"><i class="icon icon-ic-content-add-black iconstyle"></i></div>
+        </div>
+    </div>

@@ -1,0 +1,12 @@
+{
+   "serverPort" : 80,
+
+   "serverIP" : "fb.demo.bbpos.com",
+   "bucketName" : "fbqa",
+   "gatewayPort" : 4984,
+   "gatewayAuth" : "fb_user:letmein@bbpos",
+   "operationTimeout" : 5000,
+
+   "socketPort" : "2705",
+   "socketIP" : "59.152.251.6"
+}

@@ -1,0 +1,40 @@
+<div class="floorplan-wrap">
+	<div ng-if="isLoading" class="bbpos-loading" style="background-color: rgba(255,255,255,.5);">
+		<div class="loader"></div>
+	</div>
+	<div class="floorplan-scroll">
+		<div class="floorplan-size">
+			<div>&nbsp;&nbsp;Width&nbsp;:&nbsp;<span contenteditable="true" ng-model="planSize.W" spellcheck="true">{{planSize.W}}</span></div>
+			<div>Height&nbsp;:&nbsp;<span contenteditable="true" ng-model="planSize.H" spellcheck="true">{{planSize.H}}</span></div>
+		</div>
+		<div class="hall bg" style="width:{{planSize.W}}px;height: {{planSize.H}}px;">
+			<div drag-Desk ng-repeat="desk in desks" data-table="{{desk.byname}}" class="desk-panel handle-drag" ng-class="{'drag':desk.byname == byname}" ng-mousedown="editDeskstart()" ng-mousemove="editDeskmove()" ng-mouseup="editDeskend(desk)" ng-Touchstart="editDeskstart()" ng-Touchmove="editDeskmove()" ng-Touchend="editDeskend(desk)" style="left:{{desk.left}}px;top:{{desk.top}}px;line-height:{{desk.height}}px;">
+				<div class="desk-option dg" ng-repeat="ct in desk.chairTpl" ng-style="{float:(desk.rotate/90)%2 == 0 ? 'left':'none'}">
+					<span class="chair-top dg" ng-if="true == ct.ctop"></span>
+					<span class="chair-right dg" ng-if="true == ct.cright"></span>
+					<span class="chair-bottom dg" ng-if="true == ct.cbottom"></span>
+					<span class="chair-left dg" ng-if="true == ct.cleft"></span>
+				</div>
+				<div class="desk-strong">
+					<strong>{{desk.byname}}</strong>
+					<div class="xy" ng-class="{'xy_calc':position.isCalc,'xy_animate':position.isDraw}">x:{{position.x}},y:{{position.y}}</div>
+				</div>
+			</div>
+			<!-- <div drag-Desk class="desk" ng-class="{'drag':desk.byname == byname}" ng-repeat="desk in desks" ng-mousedown="editDeskstart()" ng-mousemove="editDeskmove()" ng-mouseup="editDeskend(desk)" ng-Touchstart="editDeskstart()" ng-Touchmove="editDeskmove()" ng-Touchend="editDeskend(desk)" style="left:{{desk.left}}px;top:{{desk.top}}px;width:{{desk.width}}px;height:{{desk.height}}px;line-height:{{desk.height}}px;transform:rotate({{desk.rotate}}deg);-webkit-transform:rotate({{desk.rotate}}deg);-ms-transform:rotate({{desk.rotate}}deg);-o-transform:rotate({{desk.rotate}}deg);-moz-transform:rotate({{desk.rotate}}deg);">
+				<div class="desk-strong" style="transform:rotate(-{{desk.rotate}}deg);-webkit-transform:rotate(-{{desk.rotate}}deg);-ms-transform:rotate(-{{desk.rotate}}deg);-o-transform:rotate(-{{desk.rotate}}deg);-moz-transform:rotate(-{{desk.rotate}}deg);">
+					<strong>{{desk.byname}}</strong>
+					<div class="xy" ng-class="{'xy_calc':position.isCalc,'xy_animate':position.isDraw}">x:{{position.x}},y:{{position.y}}</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<div class="add-desk" ng-click="editDesk('')">
+		<i class="icon icon-ic-new-table-black iconstyle"></i>
+        <div class="addcover"></div>
+	</div>
+	<div class="add-desk" ng-click="saveDesk()" style="right: 116px;">
+		<i class="icon icon-ic-done-black iconstyle" style="margin-bottom: 5px;"></i>
+        <div class="addcover"></div>
+	</div>
+	<div bbpos-Plan-Edit class="edit-menu" hide-plan-edit="hidePlanEdit()" ng-class="{'menu-show':isEdit,'slideInRight animated':isEdit}" style="top: -1px;"></div>
+</div>

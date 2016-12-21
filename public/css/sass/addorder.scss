@@ -1,0 +1,172 @@
+.addorderwrap {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	display: none;
+	height: 100%;
+	width: 360px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,.24);
+	animation-duration: 120ms;
+	animation-delay: 0s;
+}
+
+.addorder-show {
+	display: block;
+}
+
+.addorder-form {
+	height: 100%;
+	min-height: 360px;
+	/* position: relative; */
+	.title {
+		height: 64px;
+		background-color: #009688;
+		color: #FFF;
+
+		div.top {
+			height: 64px;
+			line-height: 1;
+			padding: 20px;
+
+			strong {
+				font-size: 24px;
+				cursor: pointer;
+			}
+		}
+
+		div.buttom {
+			opacity: .66;
+			line-height: 1;
+			padding: 10px 30px;
+			font-size: 16px;
+			font-weight: 500;
+		}
+	}
+
+	.panel {
+		position: relative;
+		height: calc(100% - 64px);
+		padding: 20px 12px;
+		box-shadow: none;
+
+		.order-input {
+			position: relative;
+			float: left;
+			padding: 0 8px;
+			margin: 0 0 24px;
+		}
+
+		.half {
+			width: 50%;
+		}
+
+		.full {
+			width: 100%;
+		}
+
+		.btn-square.yellow {
+			width: 100%;
+			margin: 8px 0;
+		}
+
+		.btn-square.green {
+			width: 100%;
+			margin: 8px 0;
+		}
+
+		.btn-square.red {
+			width: 100%;
+			margin: 8px 0;
+		}
+
+		.fblabel {
+			color: rgba(0,0,0,.37);
+			font-size: 12px;
+			padding: 0;
+			margin: 0;
+		}
+
+		.btn-open-bg {
+			position: absolute;
+			background-color: #FFB300;
+			color: #FFF !important;
+			font-size: 20px;
+			font-weight: 500;
+			width: 155px;
+			border: 1px solid #FFB300;
+			box-shadow: 0 5px 10px #999;
+		}
+
+		.tb-icon {
+			position: absolute;
+			right: 16px;
+			top: 24px;
+			width: 24px;
+			height: 24px;
+		}
+		.form-control{
+			padding: 0;
+			line-height: 24px;
+			height: 32px;
+			&:focus{
+				border-bottom: 2px solid #4caf50;
+			}
+		}
+
+		.dish-btn {
+			width: 160px;
+			color: #FFF;
+			font-weight: 500;
+			box-shadow: 0 5px 10px #999;
+		}
+
+		.dish-save {
+			@extend .dish-btn;
+			background-color: #4CAF50;
+			border: 1px solid #4CAF50;
+		}
+
+		.dish-delete {
+			@extend .dish-btn;
+			background-color: #E53935;
+			border: 1px solid #E53935;
+		}
+
+		.addorderbrn {
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+			color: #FFF;
+
+			.btn-bg {
+				background-color: #FFB300;
+				font-size: 24px;
+				font-weight: 500;
+
+				&:hover {
+					color: #FFF;
+				}
+
+				&:focus {
+					color: #FFF;
+				}
+			}
+
+			.editbtn-bg {
+				background-color: #4CAF50;
+				font-size: 24px;
+				font-weight: 500;
+
+				&:hover {
+					color: #FFF;
+				}
+
+				&:focus {
+					color: #FFF;
+				}
+			}
+		}
+	}
+}

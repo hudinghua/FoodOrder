@@ -1,0 +1,284 @@
+.historywrap {
+	padding: 0;
+	position: absolute;
+	top: 64px;
+	bottom: 0;
+	width: 100%;
+	user-select: none;
+}
+
+.his-list {
+	height: 100%;
+}
+
+.panel-body {
+	padding: 0 20px;
+	box-shadow: inset 0 -1px 0 0 #ddd;
+}
+.panel-body:after{
+	content: none;
+}
+.history {
+	height: 100%;
+
+	.wrap {
+		border-radius: 0;
+
+		.his-date {
+			height: 48px;
+			line-height: 48px;
+			padding: 12px 20px;
+			color: rgba(0,0,0,0.54);
+			background-color: #eee;
+
+			h3 {
+				font-size: 14px;
+				font-weight: 500;
+				line-height: 24px;
+			}
+		}
+	}
+
+	.his-group {
+		margin: 0;
+		padding: 0;
+
+		.cover {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.his-group-item {
+			position: relative;
+			display: block;
+			height: 72px;
+			padding: 16px 0;
+			margin: 0;
+			box-shadow: inset 0 -1px 0 0 #eee;
+
+			&:last-child{
+				box-shadow: none;
+			}
+			// .number {
+			// 	font-size: 16px;
+			// 	font-weight: 500;
+			// 	line-height: 24px;
+			// }
+
+			// .note {
+			// 	font-size: 14px;
+			// 	font-weight: 300;
+			// 	color: rgba(0,0,0,0.54);
+			// 	height: 24px;
+			// 	line-height: 24px;
+			// }
+		}
+
+		.iconwrap {
+			width: 40px;
+			height: 40px;
+			float: left;
+			margin-right: 16px;
+
+			.icon {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				color: #FFF;
+				background-color: #4caf50;
+				opacity: 1;
+				font-size: 24px;
+				line-height: 40px;
+				text-align: center;
+			}
+		}
+
+		.his-item-msg {
+			position: absolute;
+			left: 72px;
+			width: calc(100% - 160px);
+
+			// .note-left {
+			// 	left: 72px;
+			// }
+		}
+
+		.his-item-price {
+			float: right;
+			text-align: right;
+
+			// .number-right {
+			// 	color: #4caf50;
+			// 	width: 100%;
+			// 	text-align: right;
+			// }
+
+			// .note-right {
+			// 	width: 100%;
+			// 	text-align: right;
+			// }
+		}
+		.orderNum {
+			font-size: 16px;
+			font-weight: 500;
+			color: #212121;
+		}
+		.desc{
+			overflow: hidden;
+			color: rgba(0,0,0,.54);
+			font-size: 14px;
+			font-weight: 400;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.price{
+			font-size: 16px;
+			font-weight: 500;
+			color: #4CAF50;
+		}
+	}
+
+	.his-slide {
+		position: absolute;
+		z-index: 999;
+		top: -64px;
+		right: 0;
+		display: none;
+		width: 360px;
+		height: calc(100% + 64px);
+		background: #FFF;
+		box-shadow: 0 0 6px 0 rgba(0,0,0,.24);
+		transition: right 200ms;
+		animation-duration: 200ms;
+
+		.header {
+			position: relative;
+			top: 0;
+			left: 0;
+			background-color: #009688;
+			box-shadow: 0 1px 0 rgba(0,0,0,.1);
+
+			.top {
+				height: 64px;
+				padding: 20px;
+				color: #FFF;
+
+				.OrderTitle{
+					display: inline-block;
+					height: 24px;
+				}
+				.people {
+					float: right;
+					height: 24px;
+					opacity: .66;
+
+					span {
+						font-weight: 300;
+					}
+				}
+			}
+
+			.bottom {
+				height: 48px;
+				padding: 0 20px;
+				color: #FFF;
+				position: relative;
+
+				.titletext{
+					line-height: 48px;
+				}
+				.right{
+					float: right;
+				}
+			}
+		}
+
+		.dishes {
+			position: absolute;
+			top: 112px;
+			bottom: 0;
+			width: 100%;
+			padding: 20px;
+
+			.itemlist {
+				height: calc(100% - 56px);
+				padding: 0;
+
+				ul {
+					margin: 0 15px 0 0;
+					padding: 0;
+					list-style: none;
+
+					li {
+						position: relative;
+						margin: 0 0 16px 0;
+						padding: 0 0 12px 0;
+						border-bottom: 1px solid #DDD;
+						line-height: 1;
+						-webkit-user-select: none;
+
+						&:last-child {
+							border-bottom: 0;
+						}
+
+						.imgorder {
+							float: left;
+							background-size: cover;
+							width: 72px;
+							height: 72px;
+							margin: 0 8px 0 0;
+							background: #eee;
+						}
+
+						.orderprofile {
+							display: inline-block;
+							width: 200px;
+							font-size: 14px;
+							font-weight: 400;
+							line-height: 20px;
+							vertical-align: top;
+
+							.note {
+								color: #212121;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+								width: 205px;
+							}
+
+							.size {
+								color: #212121;
+								opacity: .66;
+							}
+
+							.qty {
+								color: #009688;
+								font-size: 16px;
+								font-weight: 500;
+							}
+						}
+					}
+				}
+			}
+
+			.receipt-btn-wrap {
+				position: absolute;
+				bottom: 32px;
+				height: 36px;
+				width: 320px;
+
+				.btn-square {
+					width: 100%;
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	.his-show {
+		display: block;
+	}
+}

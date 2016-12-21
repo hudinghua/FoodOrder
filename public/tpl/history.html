@@ -1,0 +1,82 @@
+<div class="history">
+	<div class="module-title">
+		History
+	</div>
+	<div fb-Scroll ng-click="touchZoneFold($event)" class="his-list">
+		<div ng-touchstart="touchZoneFold($event)" class="panel panel-default wrap">
+			<div ng-repeat="(key,rows) in groupRow">
+				<div class="panel-heading his-date">
+					<h3 class="panel-title">{{key | timeCategory | date:'EEEE, d MMM yyyy'}}</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="his-group">
+						<li ng-click="rowClick(row)" ng-repeat="row in rows | orderBy:'modify_at':'desc'" class="his-group-item">
+							<div class="iconwrap">
+								<div class="icon icon-ic-payment-card-black"></div>
+							</div>
+							<div class="his-item-msg">
+								<div class="number orderNum">#{{row.mposfb.number}}</div>
+								<div class="note desc">{{row.mposfb.summary}}</div>
+							</div>
+							<div class="his-item-price">
+								<div class="number price">{{row.mposfb.amount/100 | currency}}</div>
+								<div class="note desc">{{row.mposfb.modify_at | timeAmPm | date:'shortTime'}}</div>
+							</div>
+							<div class="cover"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="his-slide" ng-class="hisShow">
+		<div class="header">
+			<div class="top">
+				<div class="OrderTitle">
+					<h1 class="titletext">{{header.mposfb.table}} #{{header.mposfb.number}}</h1>
+				</div>
+				<div class="people">
+					<i class="icon-ic-people-black"></i>
+					<h2 class="titletext">{{header.mposfb.customers}}/{{header.mposfb.customers}}</h2>
+				</div>
+			</div>
+			<div class="bottom">
+				<h2 class="titletext">{{header.mposfb.dishes}} dishes | {{header.mposfb.items_count}} items</h2>
+				<h2 class="titletext right">{{header.mposfb.amount/100 | currency}}</h2>
+			</div>
+		</div>
+		<div class="dishes">
+			<div fb-Scroll class="itemlist">
+				<ul>
+					<li ng-repeat="dish in items">
+						<div class="imgorder" ng-style="dish.bgImg"></div>
+						<div class="orderprofile">
+							<div class="note">{{dish.unit_price/100 | currency}}</div>
+							<div class="note">{{dish.name}}</div>
+							<div class="size">
+								{{dish.price.name | brackets}}
+							</div>
+							<div ng-repeat="modify in dish.modifiers">
+								<div ng-repeat="option in modify.options">
+									<div class="size">
+										{{option | moneyBrackets}}
+									</div>
+								</div>
+							</div>
+
+							<div class="qty">
+								Qty {{dish.count}}
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="receipt-btn-wrap">
+				<button ng-click="receipt()" class="btn-square green" type="button" value="RECEIPT">View receipt</button>
+			</div>
+		</div>
+	</div>
+	<div ng-if="isLoading" class="bbpos-loading">
+		<div class="loader">Loading...</div>
+	</div>
+</div>

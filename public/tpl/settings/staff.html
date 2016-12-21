@@ -1,0 +1,59 @@
+<div class="staff-wrap">
+	<div ng-if="isLoading" class="bbpos-loading">
+		<div class="loader"></div>
+	</div>
+	<div class="panel" style="height: calc(100% - 60px);">
+	    <div class="clearfix" style="padding-bottom: 20px;">
+			<div class="set-header">
+				<h3>Staff</h3>
+			</div>
+			<div class="set-btn-right">
+				<input ng-click="rowAdd()" class="btn bbpos-btn-bg bbpos-btn-bs btn-lg" style="width: 128px;" type="button" ng-disabled="isSaved" value="ADD STAFF">
+			</div>
+
+		</div>
+	    <div fby-Scroll class="table-responsive" style="height: 100%;">
+	      	<table class="table table-striped b-light">
+		        <thead>
+		          <tr>
+		            <th style="color:#b3b5b4;padding-left: 0px;">Staff Name</th><!-- width: 30%; -->
+		            <th style="color:#b3b5b4;">Staff ID</th><!-- width: 28%; -->
+		            <th style="color:#b3b5b4;">Passcode</th><!-- width: 28%; -->
+		            <th></th><!-- style="width:14%;" -->
+		          </tr>
+		        </thead>
+		        <tbody>
+		            <tr ng-repeat="row in staff">
+		             	<td style="padding-left: 0px;">
+		             		<div class="set-cell">
+		             			<span class="text-ellipsis" editable-text="row.name" e-name="name" e-maxlength="24" e-form="rowform" onbeforesave="checkStaffName($data)">{{row.name || ""}}</span>
+		             		</div>
+		             	</td>
+		             	<td>
+		            		<div class="set-cell"> <!-- style="min-width:200px;" -->
+		            			<span class="text-ellipsis" editable-text="row.staff_id" e-name="staff_id" e-maxlength="24" e-form="rowform" onbeforesave="checkStaffID($data)">{{row.staff_id || ""}}</span>
+		            		</div>
+		            	</td>
+		             	<td>
+		            		<div class="set-cell"> <!-- style="min-width:200px;" -->
+		            			<span class="text-ellipsis" editable-text="row.pin" e-name="pin" e-maxlength="24" e-form="rowform" onbeforesave="checkPasscode($data)">******</span>
+		            		</div>
+		            	</td>
+		            	<td>
+		            		<div class="set-cell"> <!-- style="min-width: 100px;text-align: right;" -->
+				              	<form editable-form name="rowform" onaftersave="rowSave(row)" oncancel="rowCancel(row)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == row">
+				              		<button type="submit" class="icon icon-ic-done-black set-icon-font set-icon-rowsave" ng-disabled="rowform.$waiting"></button>
+				              		<i class="icon icon-ic-close-black set-icon-font" style="color:red;opacity:.5" ng-click="rowform.$cancel()"  ></i>
+						        </form>
+						        <div class="buttons" ng-show="!rowform.$visible">
+						            <i class="icon icon-ic-edit-black set-icon-font" style="opacity:.54" ng-click="rowform.$show()"></i>
+						            <i class="icon icon-ic-remove-circle-black set-icon-font" style="opacity:.54" ng-click="rowDelete(row)" role="delete"></i>
+						        </div>
+						     </div>
+		            	</td>
+	             	</tr>
+		        </tbody>
+	      	</table>
+	    </div>
+    </div>
+</div>

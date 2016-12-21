@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+<div ng-app="myApp" class="test">
+	<input type="email">
+</div>
+<script type="text/javascript" src = "./libs/angular/angular/angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module("myApp", []);
+	app.controller("myCtrl", function($scope) {
+	    $scope.firstName = "John";
+	    $scope.lastName = "Doe";
+	});
+</script>
+</body>
+</html>

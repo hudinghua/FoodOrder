@@ -1,0 +1,65 @@
+.restaurant-wrap {
+	position:relative;
+	height:calc(100% - 50px);
+}
+.restaurant-content {
+	height: 100%;
+	margin:20px;
+	padding:20px 24px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.12), 0px 2px 3px 0px rgba(0,0,0,0.24);
+	border-radius: 2px;
+	position: relative;
+	.fontgray {
+		color: rgba(0,0,0,0.38);
+	}
+	.panel{
+		margin-bottom: 60px;
+		box-shadow: none;
+	}
+	.panel-body{
+		box-shadow: none;
+		border: none;
+	}
+	/* .basic-header-save {
+		position: fixed;
+	    width: 100%;
+	    padding-right: 100px;
+	} */
+	/* .header {
+		float: left;
+		color: #212121;
+	}
+	.btn-save {
+		float: right;
+		margin-top: 12px;
+		.btn-lg {
+			width: 104px;
+    		height: 36px;
+    		padding: 6px 0px;
+		}
+	} */
+	/* .business-img {
+		width: 100px;
+		height: 100px;
+		background-size: cover;
+	} */
+	.ico-basic {
+		font-size: 100px;
+		background: #37474F;
+		border: 1px solid rgba(0,0,0,0.12);
+		border-radius: 3px;
+		line-height: initial;
+	}
+	.input-position {
+	 	margin-left: 30px;
+	 	width: calc(100% - 30px);
+	}
+	.input-select {
+		position: absolute;
+    	z-index: 1;
+	}
+	.valid-res {
+		color:red;
+	}
+}

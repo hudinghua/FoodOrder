@@ -1,0 +1,42 @@
+<div ng-touchstart="touchStartMenu()" class="menu-form">
+	<div class="title">
+		<!-- <div ng-class="{'logo':true,'glyphicon glyphicon-user':user.isDef}"><img ng-src={{user.logo}} ng-show="user.isShow" alt=""></div> -->
+		<div class="user">
+			<span>&nbsp;{{user.userName}}</span>
+			<span>&nbsp;{{user.role}}</span>
+		</div>
+	</div>
+	<div class="menu-panel">
+		<div class="project">
+			<ul>
+				<li ui-sref="app" ng-click="saleTrigger()">
+					<i class="icon icon-ic-register-black"></i>
+					<span class="">Order</span>
+				</li>
+				<li ui-sref="app.history">
+					<i class="icon icon-ic-history-black"></i>
+					<span class="">History</span>
+				</li>
+			</ul>
+		</div>
+		<div class="function">
+			<ul>
+				<li ng-click="goRestaurant()"> <!-- ui-sref="app.settings.restaurant" -->
+					<i class="icon icon-ic-settings-black"></i>
+					<span class="">Settings</span>
+				</li>
+				<!-- <li>
+					<i class="icon icon-ic-help-black"></i>
+					<span class="">Help & Feedback</span>
+				</li> -->
+				<li ng-click="logout()">
+					<i class="icon icon-ic-logout-black"></i>
+					<span class="">Logout</span>
+				</li>
+				<li>
+					<dd>@2016 BBPOS All rights reserved.</dd>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

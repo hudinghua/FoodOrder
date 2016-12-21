@@ -1,0 +1,219 @@
+<div class="dishwrap">
+	<div ng-if="isAllLoading" class="bbpos-loading" style="background-color: rgba(255,255,255,.5);">
+		<div class="loader"></div>
+	</div>
+	<div class="dishview">
+		<div class="tabwrap left-menu">
+			<div class="top">
+				<div>
+					<i class="icon-ic-arrow-back-black icon back" ng-click="backApp()"></i>
+					<h1 class="titletext">Menu</h1>
+				</div>
+
+			</div>
+			<div class="bottom">
+				<a ng-if="!isTouch" ng-click="rightSlideCategory($event)" class="left-slide show-slide" href="javascript:;">
+					<span class="icon icon-ic-chevron-left-black"></span>
+				</a>
+				<ul inertia-Scroll>
+					<li ng-repeat="tab in category" ng-click="triggerTab(tab)" ng-class="{active:isActive(tab.id)}">
+						<a href="javascript:;">{{tab.mposfb.name}}</a>
+						<div class="active-line bg-line"></div>
+					</li>
+				</ul>
+				<a ng-if="!isTouch" ng-click="leftSlideCategory($event)" class="right-slide show-slide" href="javascript:;">
+					<span class="icon icon-ic-chevron-right-black"></span>
+				</a>
+			</div>
+		</div>
+		<div class="dishpanel">
+			<div ng-if="isLoading" class="bbpos-loading" style="background-color: #eeeeee;">
+				<div class="loader">Loading...</div>
+			</div>
+			<div fb-Scroll>
+				<ul id="dishRenderId" ng-Touchstart="slideSwitchS($event)" ng-Touchend="slideSwitchE($event)">
+					<li ng-repeat="item in items" ng-click="addDish(item,'lg')">
+						<div class="food" ng-style="item.bgImg"></div>
+						<div class="foodname">{{item.mposfb.name}}</div>
+						<div class="clearfix"></div>
+						<div class="foodprice">{{item.mposfb.price | priceRange}}</div>
+						<div class="foodcover"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- s-选中的菜单列表 -->
+	<div ng-show="isEditOrder" class="dishitems dishsidebar">
+		<div class="tabwrap right-menu">
+			<div class="top">
+				<div ng-click="toggleOrder()" class="OrderSettingToggle">
+					<h1 class="titletext">{{dishData.order.mposfb.table}} #{{dishData.order.mposfb.number}}</h1>
+					<i class="icon icon-ic-arrow-drop-down-black"></i>
+				</div>
+				<div class="people">
+					<i class="icon-ic-people-black"></i>
+					<h2 class="titletext">{{dishData.order.mposfb.customers}}/{{dishData.guests}}</h2>
+				</div>
+			</div>
+			<div class="bottom">
+				<h2 class="titletext">{{dishData.order.mposfb.dishes}} dishes | {{dishData.order.mposfb.items_count}} items</h2>
+				<h2 class="titletext right">{{dishData.order.mposfb.amount/100 | currency}}</h2>
+			</div>
+		</div>
+		<div class="dishselect">
+			<div ng-if="isDishEmpty" class="dishempty">
+				<div class="emptyimg">
+					<dl>
+						<dt>Ouhh... it's empty here!</dt>
+						<dd>Select and add item from the meun.</dd>
+					</dl>
+				</div>
+			</div>
+			<!-- s-菜单列 -->
+			<div ng-if="!isDishEmpty" fb-Scroll class="itemlist">
+				<ul>
+					<li ng-repeat="dish in dishs">
+						<div class="imgorder" ng-style="dish.bgImg"></div>
+						<div class="orderprofile">
+							<div class="note">{{dish.unit_price/100 | currency}}</div>
+							<div class="note">{{dish.name}}</div>
+							<div class="size">
+								{{dish.price.name | brackets}}
+							</div>
+							<div ng-repeat="modify in dish.modifiers">
+								<div ng-repeat="option in modify.options">
+									<div class="size">
+										{{option | moneyBrackets}}
+									</div>
+								</div>
+							</div>
+
+							<div class="qty">
+								Qty {{dish.count}}
+							</div>
+						</div>
+						<i ng-click="deleteDish(dish)" class="icon icon-ic-remove-circle-black unchose"></i>
+					</li>
+				</ul>
+			</div>
+			<!-- e-菜单列 -->
+			<div class="charge-btn-wrap">
+				<button ng-click="saveOrder('place')" class="btn-square white" type="button" ng-class="{'btn-disabled':isDishEmpty}" ng-disabled="isDishEmpty" value="PLACE ORDER">Place order</button>
+				<button ng-click="charge()" class="btn-square green" type="button" ng-class="{'btn-disabled':isDishEmpty}" ng-disabled="isDishEmpty" value="CHECK">Check</button>
+			</div>
+
+		</div>
+	</div>
+	<!-- e-选中的菜单列表 -->
+
+	<!-- s-编辑订单桌 -->
+	<div ng-show="!isEditOrder" ng-touchstart="touchStartOrder()" class="addorderwrap" style="display:block;">
+		<div class="addorder-form">
+			<div class="title">
+				<div ng-click="toggleOrder()" class="top">
+					<div class="OrderSettingToggle">
+						<h1 class="titletext">{{dishData.order.mposfb.table}} #{{dishData.order.mposfb.number}}</h1>
+						<i class="icon icon-ic-arrow-up-black down-toggle"></i>
+					</div>
+					<!-- <i class="glyphicon glyphicon-triangle-bottom down-toggle"></i> -->
+				</div>
+				<!-- <div class="buttom"><span>Server:&nbsp;</span>{{userName}}</div> -->
+			</div>
+			<div class="form-group panel">
+				<div class="order-input half">
+					<label class="fblabel" for="forInputTable">Table</label>
+					<select ng-model="currentTable" ng-change="tableChange(currentTable)" ng-options="t for t in tableItems | orderBy:t" class="form-control input-bottom-line" id="forInputTable" data-toggle="popover" data-placement="bottom" data-trigger="focus" title=""
+									data-content="Table cannot be empty!">
+					</select>
+					<span class="icon-ic-arrow-drop-down-black tb-icon"></span>
+				</div>
+				<div class="order-input half">
+					<label class="fblabel" for="forInputGuest">No. of guest</label>
+					<select ng-model="guest" ng-change="guestChange(guest)" ng-options="g for g in guests" class="form-control input-bottom-line" id="forInputGuest" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="" data-content="Guest cannot be empty!">
+					</select>
+					<span class="icon-ic-arrow-drop-down-black tb-icon"></span>
+				</div>
+				<div class="order-input half">
+					<label class="fblabel" for="forInputServer">Server</label>
+					<select id="fb-server" ng-model="server.selected" ng-options="o as o for o in server.options" class="form-control input-bottom-line right-menu-line" id="forInputServer" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="" data-content="Server cannot be empty!">
+					</select>
+					<span class="icon-ic-arrow-drop-down-black tb-icon"></span>
+				</div>
+				<div class="order-input full">
+					<label class="fblabel" for="forInputNote">Note</label>
+					<input ng-model="dishData.order.mposfb.note" class="form-control input-bottom-line" type="text" id="forInputNote">
+				</div>
+				<div class="order-input half">
+					<button ng-click="saveOrder('model')" type="button" class="btn-square green">SAVE</button>
+				</div>
+				<div class="order-input half">
+					<button ng-click="deleteOrder()" type="button" class="btn-square red">DELETE ORDER</button>
+				</div>
+				<!-- <div class="col-sm-12 addorderbrn">
+			    	<button ng-click="saveOrder()" type="button" class="btn btn-lg btn-block editbtn-bg">Save</button>
+			    </div> -->
+			</div>
+		</div>
+	</div>
+	<!-- e-编辑订单桌 -->
+
+	<!-- s-<添加菜>模态模板 -->
+	<script type="text/ng-template" id="tpl/adddish.html">
+		<div class="dialog-header">
+			<i class="icon-ic-close-black closewin" ng-click="addDishCancel()"></i>
+			<strong class="title">{{modal.name}}</strong>
+			<button class="btn-square green flat" ng-click="addDishOk()">ADD</button>
+		</div>
+		<div class="dialog-body">
+			<div class="form-group">
+				<h3>Pricing</h3>
+			</div>
+			<div class="form-group">
+				<label ng-repeat="p in modal.prices" class="i-checks">
+                	<input type="radio" name="pricing" ng-checked="$index==0?true:false" ng-click="selectPrice(p)">
+                	<i></i>{{p.name}} ({{p.price/100 | currency}})
+                </label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4 col-paddingleft">
+					<label class="label-plugin">Qty</label>
+					<div class="m-b">
+						<div class="input-group bootstrap-touchspin">
+							<input ng-model="qty.count" type="text" value="1" readonly="readonly" class="form-control input-bottom-line" style="display: block;background-color: transparent;width:80%;">
+							<div ng-click="qty.up()" class="qty-updown">
+								<i class="icon-ic-content-add-black"></i>
+							</div>
+							<div ng-click="qty.down()" class="qty-updown" style="right: -40px;">
+								<i class="icon-ic-content-remove-black"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 col-paddingright">
+					<label class="label-plugin">Note</label>
+					<input ng-model="note" class="form-control input-bottom-line" type="text">
+				</div>
+			</div>
+			<div class="line b-b line-lg line-margin"></div>
+			<div ng-if="isModifiers" class="form-group">
+				<h3>Modifiers</h3>
+			</div>
+			<div ng-if="isModifiers" ng-repeat="m in modal.modifiers">
+				<div class="form-group">
+					<h4>{{m.name}}&nbsp;&nbsp;<small>Choose 0-{{m.max}}</small></h4>
+				</div>
+				<div class="form-group">
+					<label ng-repeat='ck in m.options | nonEmpty' class="i-checks">
+	                	<input ng-if="m.single" type="radio" name="modifiers" ng-checked="ck.isCheck" ng-click="modifyRadio(!m.single,m.name,ck)">
+	                	<input ng-if="!m.single" type="checkbox" name="modifiers" ng-model="ck.isCheck" ng-checked="ck.isCheck">
+	                	<i></i>{{ck.name}} (+{{ck.price/100 | currency}})
+	                </label>
+				</div>
+			</div>
+		</div>
+	</script>
+	<!-- e-<添加菜>模态模板 -->
+	<div toaster-Dish is-Dishtip="isDishtip"></div>
+</div>

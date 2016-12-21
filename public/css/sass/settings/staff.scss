@@ -1,0 +1,12 @@
+.staff-wrap {
+	margin:20px; 
+	padding:20px 24px;
+	height:calc(100% - 40px);
+	background: #FFFFFF;
+	box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.12), 0px 2px 3px 0px rgba(0,0,0,0.24);
+	border-radius: 2px;
+	position:relative;
+	.editable-error {
+		color: #E53935 !important;
+	}
+}

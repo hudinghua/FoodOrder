@@ -1,0 +1,153 @@
+<div fby-Scroll class="receipt-wrap">
+	<div ng-if="isLoading" class="bbpos-loading">
+		<div class="loader"></div>
+	</div>
+	<div class="wrapper-md" style="padding-top:0px;">
+		<div class="row">
+			<!-- 设置区域 -->
+			<div class="panel wrapper-sm col-sm-6" style="background-color: #eee;">
+				<div class="panel-body" style="background-color: #eee;">
+					<span class="headerText">
+						Header Text*
+					</span>
+					<div>
+						<input class="w-full noBorderInput" ng-model="receiptData.header" placeholder="Urban Barbecue | The Best Place in Town">
+						<span class="text-muted help-block m-b-none">You can enter your business name as the receipt header text</span>
+					</div>
+					<div style="padding-top: 20px">
+						<span class="font-bold" style="font-size: 16px;">Header Color</span>
+					</div>
+					<div class="form-group">
+						<div class="row wrapper-sm">
+							<div class="col-sm-3 col-paddingright">
+								<button class="btn w-full red" ng-class="{true : 'active',false : ''}[receiptData.color=='#f44336']" ng-click="receiptData.color='#f44336';" >
+									<i class="fa fa-check text-active"></i>
+									&nbsp;Red
+								</button>
+							</div>
+							<div class="col-sm-3 col-paddingright">
+								<button class="btn w-full purple" ng-class="{true : 'active',false : ''}[receiptData.color=='#9c27b0']" ng-click="receiptData.color='#9c27b0';" >
+									<i class="fa fa-check text-active"></i>
+									&nbsp;Purple
+								</button>
+							</div>
+							<div class="col-sm-3 col-paddingright ">
+								<button class="btn w-full blue" ng-class="{true : 'active',false : ''}[receiptData.color=='#2196f3']" ng-click="receiptData.color='#2196f3';" >
+									<i class="fa fa-check text-active"></i>
+									&nbsp;Blue
+								</button>
+							</div>
+							<div class="col-sm-3 col-paddingright">
+								<button class="btn w-full indigo" ng-class="{true : 'active',false : ''}[receiptData.color=='#3f51b5']" ng-click="receiptData.color='#3f51b5';" >
+									<i class="fa fa-check text-active"></i>
+									&nbsp;Indigo
+								</button>
+							</div>
+						</div>
+						<div class="row wrapper-sm">
+							<div class="col-sm-3 col-paddingright">
+								<button class="btn w-full cyan" ng-class="{true : 'active',false : ''}[receiptData.color=='#00bcd4']" ng-click="receiptData.color='#00bcd4';" >
+									<i class="fa fa-check text-active"></i>
+									&nbsp;Cyan
+								</button>
+							</div>
+							<div class="col-sm-3 col-paddingright">
+								<button class="btn w-full teal" ng-class="{true : 'active',false : ''}[receiptData.color=='#009688']" ng-click="receiptData.color='#009688';" >
+									<i class="fa fa-check text-active"></i>
+									&nbsp;Teal
+								</button>
+							</div>
+							<div class="col-sm-3 col-paddingright">
+								<button class="btn w-full amber" ng-class="{true : 'active',false : ''}[receiptData.color=='#ffc107']" ng-click="receiptData.color='#ffc107';" >
+									<i class="fa fa-check text-active"></i>
+									&nbsp;Amber
+								</button>
+							</div>
+							<div class="col-sm-3 col-paddingright">
+								<button class="btn w-full orange" ng-class="{true : 'active',false : ''}[receiptData.color=='#ff9800']" ng-click="receiptData.color='#ff9800';" >
+									<i class="fa fa-check text-active"></i>
+									&nbsp;Orange
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12 m-t-sm">
+						<label class="i-checks m-b-none font-default-size" >
+							<input type="checkbox" ng-checked="receiptData.showLogo" ng-model="receiptData.showLogo" /><i></i>
+							show logo
+						</label>
+					</div>
+					<div class="col-sm-12 m-t-md">
+						<label class="i-checks m-b-none font-default-size" >
+							<input type="checkbox" ng-checked="receiptData.showInfo" ng-model="receiptData.showInfo" /><i></i>
+							show restaurant info
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12 m-t-md">
+						<label class="m-b-none text-muted font-default-size" >
+							Description
+						</label>
+						<textarea maxlength="120" ng-model="receiptData.desc" class="w-full noBordertextarea" spellcheck="false"/>
+					</div>
+				</div>
+			</div>
+			<!-- 展示区域 -->
+			<div class="col-sm-6">
+				<div class="panel b-a restaurant-wrap">
+					<div class="panel-heading text-center font-bold receipt-title" ng-style="{'background-color': receiptData.color}">
+						{{receiptData.header}}
+					</div>
+					<div class="panel-body bg-white box-shadow">
+						<div class="row">
+							<div class="col-sm-2 wrapper-sm" ng-show="receiptData.showLogo" >
+								<img ng-src={{restaurantData.img}} width="72" height="72" >
+							</div>
+							<div class="col-sm-10 wrapper-sm list-icon" ng-show="receiptData.showInfo" >
+								<i class="icon icon-ic-phone-black"></i>
+								<span class="text-muted font-size" >{{restaurantData.phone}}</span>
+								<br/>
+								<i class="icon icon-ic-home-black"></i>
+								<span class="text-muted font-size" >{{restaurantData.link}}</span>
+								<br/>
+								<i class="icon icon-ic-facebook-black"></i>
+								<span class="text-muted font-size" >{{restaurantData.facebook}}</span>
+							</div>
+							<div class="col-sm-12 m-t-md wrapper-md">
+								<div class="w-full row item-example" >
+									<span class="col-sm-1 font-bold font-default-size" >1X</span>
+									<span class="col-sm-9 font-bold font-default-size" >Item</span>
+									<span class="col-sm-2 text-muted font-size" >$3.95</span>
+								</div>
+							</div>
+							<div class="col-sm-12 m-t-md ">
+								<div class="w-full row">
+									<span class="col-sm-10 font-bold font-default-size" >Total</span>
+									<span class="col-sm-2 text-muted text-right font-size" >$3.95</span>
+								</div>
+							</div>
+							<div class="col-sm-12 m-t-sm">
+								<div class="w-full row">
+									<span class="col-sm-12 text-muted text-right font-size" >6April(Wed),15:45</span>
+									<span class="col-sm-12 text-muted text-right font-size" >#148233</span>
+								</div>
+							</div>
+							<div class="col-sm-12 m-t-md wrapper-md text-center text-muted font-size receipt-welcome">
+								{{receiptData.desc}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pos-fix receipt-buttons">
+			<div class="pull-right v-middle" style="margin-right: 30px;">
+				<button class="btn m-b-xs w-xs btn-default" style="margin: 0 15px;" ng-click="reset()">CANCEL</button>
+				<button type="submit" class="btn m-b-xs w-xs btn-success"  style="margin: 0 15px;" ng-click="saveReceipt()">Save</button>
+			</div>
+		</div>
+	</div>
+</div>

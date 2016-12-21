@@ -1,0 +1,526 @@
+.dishwrap {
+	height: 100%;
+	-webkit-user-select: none;
+
+	.left-menu {
+		background-color: #4caf50;
+	}
+
+	.right-menu {
+		background-color: #009688;
+	}
+
+	.tabwrap {
+		position: relative;
+		top: 0;
+		left: 0;
+		box-shadow: 0 1px 0 rgba(0,0,0,.1);
+
+		.top {
+			height: 64px;
+			color: #FFF;
+
+			.back {
+				display: inline-block;
+				width: 64px;
+				height: 64px;
+				padding: 20px;
+				margin-right: 28px;
+				font-size: 24px;
+				cursor: pointer;
+			}
+
+			strong {
+				margin-left: 30px;
+				font-size: 24px;
+				cursor: pointer;
+			}
+
+			.people {
+				float: right;
+				height: 24px;
+				opacity: .66;
+
+				span {
+					font-weight: 300;
+				}
+			}
+		}
+
+		.bottom {
+			height: 48px;
+			padding: 0 20px;
+			color: #FFF;
+			position: relative;
+
+			.titletext{
+				line-height: 48px;
+			}
+			.right{
+				float: right;
+			}
+
+			.slide {
+				position: absolute;
+				z-index: 1;
+				display: none;
+				width: 24px;
+				height: 24px;
+				margin: 12px 0;
+				background-color: #4CAF50;
+				opacity: .54;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			.left-slide {
+				@extend .slide;
+			}
+
+			.right-slide {
+				@extend .slide;
+				right: 0;
+			}
+
+			&:hover {
+				.show-slide {
+					display: block;
+				}
+			}
+
+			ul {
+				position: absolute;
+				top: 0;
+				left: 0;
+				margin: 0;
+				padding: 0;
+				padding-left: 20px;
+				list-style: none;
+				white-space: nowrap;
+
+				li {
+					position: relative;
+					display: inline-block;
+					min-width: 120px;
+					height: 48px;
+					padding: 0 8px;
+					text-align: center;
+
+					a {
+						color: #FFF;
+						opacity: .54;
+						font-size: 14px;
+						font-weight: 500;
+						line-height: 48px;
+						text-decoration: none;
+					}
+
+					.active-line {
+						opacity: 1;
+						width: 100%;
+						height: 4px;
+						position: absolute;
+						left: 0;
+						bottom: 0;
+					}
+
+				}
+
+				.active {
+					a {
+						opacity: 1;
+					}
+
+					.bg-line {
+						background-color: #FFC107;
+					}
+				}
+			}
+
+			strong {
+				margin-left: 30px;
+				font-size: 22px;
+
+				&:last-child {
+					float: right;
+					margin-left: 0;
+					margin-right: 24px;
+				}
+			}
+
+			.mCSB_dragger_bar {
+				background-color: rgba(0,0,0,0.2);
+			}
+		}
+	}
+
+	.dishview {
+		position: absolute;
+		left: 0;
+		right: 360px;
+		height: 100%;
+
+		.dishpanel {
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			top: 112px;
+			overflow-x: scroll;
+			/* .mCSB_container {
+		    	overflow: hidden;
+		    	height: 100%;
+		    } */
+			ul {
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				list-style: none;
+				padding-bottom: 15px;
+
+				li {
+					position: relative;
+					display: inline-block;
+					width: 134px;
+					height: 195px;
+					/* width:150px;
+			    	height: 215px; */
+					line-height: 1;
+					margin: 15px 0 0 15px;
+					padding: 4px;
+					/* box-shadow: 0 0 4px #212121;
+			    	margin: 9px; */
+					&:hover {
+						background: #f9f9f9;
+						box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+						/* box-shadow: 0 0 8px #212121; */
+					}
+
+					.food {
+						width: 126px;
+						height: 126px;
+						background-size: cover;
+					}
+
+					.foodname {
+						float: left;
+						padding: 8px 0;
+						font-size: 14px;
+						color: #212121;
+						opacity: .66;
+						font-weight: 300;
+					}
+
+					.foodprice {
+						float: left;
+						font-size: 12px;
+						color: #212121;
+						font-weight: 400;
+					}
+
+					.foodcover {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						cursor: pointer;
+						-webkit-user-select: none;
+					}
+				}
+			}
+		}
+	}
+
+	.dishitems {
+		position: absolute;
+		z-index: 1;
+		right: 0;
+		width: 360px;
+		height: 100%;
+		background: #FFF;
+		box-shadow: 0 0 6px 0 rgba(0,0,0,.24);
+
+		.dishselect {
+			position: absolute;
+			top: 112px;
+			bottom: 0;
+			width: 100%;
+			padding: 20px;
+
+			.dishempty {
+				height: calc(100% - 52px);
+				text-align: center;
+
+				.emptyimg {
+					position: absolute;
+					top: 50%;
+					width: 320px;
+					height: 320px;
+					transform: translateY(-64%);
+					background: url('../../img/empty.png') no-repeat top center;
+				}
+
+				dl{
+					position: absolute;
+					bottom: 0;
+					width: 100%;
+				}
+				dt {
+					font-size: 20px;
+					font-weight: 500;
+					color: #212121;
+					line-height: 24px;
+				}
+
+				dd {
+					font-size: 16px;
+					font-weight: 400;
+					color: #212121;
+					line-height: 24px;
+					opacity: .33;
+				}
+			}
+
+			.itemlist {
+				height: calc(100% - 56px);
+				padding: 0;
+
+				ul {
+					margin: 0 15px 0 0;
+					padding: 0;
+					list-style: none;
+
+					li {
+						position: relative;
+						margin: 0 0 16px 0;
+						padding: 0 0 12px 0;
+						border-bottom: 1px solid #DDD;
+						line-height: 1;
+						-webkit-user-select: none;
+
+						&:last-child {
+							border-bottom: 0;
+						}
+
+						.imgorder {
+							float: left;
+							background-size: cover;
+							width: 72px;
+							height: 72px;
+							margin: 0 8px 0 0;
+							background: #eee;
+						}
+
+						.orderprofile {
+							display: inline-block;
+							width: 200px;
+							font-size: 14px;
+							font-weight: 400;
+							line-height: 20px;
+							vertical-align: top;
+
+							.note {
+								color: #212121;
+								// overflow: hidden;
+								// text-overflow: ellipsis;
+								// white-space: nowrap;
+								width: 200px;
+							}
+
+							.size {
+								color: #212121;
+								opacity: .66;
+							}
+
+							.qty {
+								color: #009688;
+								font-size: 16px;
+								font-weight: 500;
+							}
+						}
+
+						.unchose {
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: 24px;
+							height: 24px;
+							color: #000;
+							opacity: .27;
+							font-size: 24px;
+							line-height: 24px;
+							text-align: center;
+							cursor: pointer;
+							&:hover{
+								opacity: .54;
+							}
+						}
+					}
+				}
+			}
+
+			.charge-btn-wrap {
+				position: absolute;
+				bottom: 32px;
+				height: 36px;
+				width: 100%;
+
+				.btn-square.white {
+					width: 152px;
+					margin: 0 16px 0 0;
+				}
+
+				.btn-square.green {
+					width: 148px;
+					margin: 0;
+				}
+
+				.btn-loading {
+					background-color: #FFF;
+					border: 1px solid #4CAF50;
+					width: 100%;
+					height: 54px;
+				}
+
+				.charge-bg-loading {
+					width: 52px;
+					height: 52px;
+					margin: auto;
+					background-image: url('../../img/charge-loading.gif');
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: cover;
+				}
+			}
+
+		}
+	}
+}
+
+.dialog-header {
+	display: flex;
+	justify-content: space-between;
+	height: 64px;
+	line-height: 64px;
+	background-color: #4CAF50;
+
+	.closewin {
+		color: #FFF;
+		margin-left: 20px;
+		line-height: 64px;
+		cursor: pointer;
+	}
+
+	strong.title {
+		font-size: 24px;
+		color: #FFF;
+	}
+
+	.addbtn {
+		margin: 11px 20px 11px 0;
+		padding: 0;
+		width: 130px;
+		border: 0;
+		background-color: #FFF;
+		color: #4CAF50 !important;
+		font-size: 24px;
+		font-weight: 500;
+	}
+}
+
+.dialog-body {
+	position: relative;
+	padding: 20px 30px;
+
+	.i-checks {
+		margin-right: 30px;
+	}
+
+	.i-checks > i {
+		border: 2px solid #DDD;
+	}
+
+	.i-checks input:checked + i {
+		border: 2px solid #4CAF50;
+	}
+
+	.i-checks input:checked + i:before {
+		top: 3px;
+		left: 3px;
+		background-color: #4CAF50;
+	}
+
+	.line-margin {
+		padding-top: 20px;
+		margin-bottom: 30px;
+	}
+
+	.col-paddingleft {
+		padding-left: 0;
+
+		input {
+			padding: 6px 0;
+		}
+	}
+
+	.col-paddingright {
+		padding-right: 0;
+		padding-left: 30px;
+
+		input {
+			padding: 6px 0;
+		}
+	}
+
+	.qty-updown {
+		text-align: center;
+		font-size: 24px;
+		width: 32px;
+		height: 32px;
+		line-height: 32px;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		border: 1px solid #979797;
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.charge-modal-loading {
+	margin: auto;
+	border-radius: 50%;
+	width: 72px;
+	height: 72px;
+	border: .5rem solid #eee;
+	border-top-color: #4CAF50;
+	-webkit-animation: spin .6s infinite linear;
+	animation: spin .6s infinite linear;
+
+	&--double {
+		border-style: double;
+		border-width: .5rem;
+	}
+}
+
+.dishsidebar .top{
+	padding: 20px;
+}
+.OrderSettingToggle{
+	display: inline-block;
+	height: 24px;
+	cursor: pointer;
+	&:hover h1, &:hover .icon{
+		opacity: .77;
+	}
+}
